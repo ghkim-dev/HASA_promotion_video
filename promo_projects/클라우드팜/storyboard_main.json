@@ -1,0 +1,200 @@
+{
+ "format": "main",
+ "label": "메인 (홈페이지·행사 오프닝)",
+ "aspect": "16:9",
+ "canvas": "1280x720",
+ "fps": 24,
+ "seconds": 70.0,
+ "beats": [
+  {
+   "index": 0,
+   "role": "hook",
+   "start": 0.0,
+   "seconds": 6,
+   "visual": "photo",
+   "asset": "a09",
+   "asset_file": "261019_시안02_pdf_p10_456.jpg",
+   "asset_kind": "concept_city",
+   "asset_subject": "a futuristic cityscape with glowing blue digital networks and skyscrapers",
+   "recipe": "skyline_drift",
+   "overlay": {
+    "kind": "title",
+    "items": [
+     "m1"
+    ]
+   },
+   "narration_ids": [
+    "m1",
+    "m2"
+   ],
+   "bridge": "",
+   "narration": "경북에서 시작하는 AI 미래. 경북에서 시작하는 AI 혁신의 물결.",
+   "subtitle": "경북에서 시작하는 AI 혁신의 물결."
+  },
+  {
+   "index": 1,
+   "role": "problem",
+   "start": 6.0,
+   "seconds": 9,
+   "visual": "photo",
+   "asset": "a04",
+   "asset_file": "261019_시안02_pdf_p05_220.jpg",
+   "asset_kind": "concept_tech",
+   "asset_subject": "abstract network of connected nodes and lines representing data or digital connections",
+   "recipe": "data_flow",
+   "overlay": {
+    "kind": "bullets",
+    "items": [
+     "m28",
+     "m29",
+     "m30"
+    ]
+   },
+   "narration_ids": [
+    "m28",
+    "m29"
+   ],
+   "bridge": "",
+   "narration": "고성능 AI 인프라가 부담됩니다. 어떤 모델과 환경이 필요한지 모르겠습니다.",
+   "subtitle": ""
+  },
+  {
+   "index": 2,
+   "role": "hero",
+   "start": 15.0,
+   "seconds": 9,
+   "visual": "photo",
+   "asset": "a01",
+   "asset_file": "261019_시안02_pdf_p02_9.jpg",
+   "asset_kind": "real_building",
+   "asset_subject": "exterior of a modern multi-story office building with glass and metal facade under a blue sky",
+   "recipe": "aerial_push",
+   "overlay": {
+    "kind": "lower_third",
+    "items": [
+     "m3",
+     "m4"
+    ]
+   },
+   "narration_ids": [
+    "m6",
+    "m3",
+    "m4"
+   ],
+   "bridge": "",
+   "narration": "경북에서 AI가 실제로 실행되도록 합니다. 경북 초거대 AI 클라우드팜 사업단. 경북IT융합산업기술원.",
+   "subtitle": "경북에서 AI가 실제로 실행되도록 합니다."
+  },
+  {
+   "index": 3,
+   "role": "proof",
+   "start": 24.0,
+   "seconds": 14,
+   "visual": "photo",
+   "asset": "a03",
+   "asset_file": "261019_시안02_pdf_p04_113.jpg",
+   "asset_kind": "concept_tech",
+   "asset_subject": "a futuristic data center with rows of servers leading to a glowing digital globe connected by network lines",
+   "recipe": "corridor_dolly",
+   "overlay": {
+    "kind": "counter",
+    "items": [
+     "f1",
+     "f2",
+     "f3",
+     "f5"
+    ]
+   },
+   "narration_ids": [
+    "m9",
+    "m8",
+    "m20",
+    "m36",
+    "m38"
+   ],
+   "bridge": "",
+   "narration": "두 개의 ZONE, 하나의 AI 실행 인프라. GBCLOUD.AI를 통해 필요한 Cloud와 AI 서비스를 이용. AI 개발 플랫폼 지원. 기술컨설팅. 산학연 협력 생태계 조성.",
+   "subtitle": "두 개의 ZONE, 하나의 AI 실행 인프라. GBCLOUD.AI를 통해 필요한 Cloud와 AI 서비스를 이용. AI 개발 플랫폼 지원. 기술컨설팅. 산학연 협력 생태계 조성."
+  },
+  {
+   "index": 4,
+   "role": "process",
+   "start": 38.0,
+   "seconds": 12,
+   "visual": "photo",
+   "asset": "a05",
+   "asset_file": "261019_시안02_pdf_p06_270.jpg",
+   "asset_kind": "concept_tech",
+   "asset_subject": "a glowing blue cloud hovering over a futuristic cityscape with circuit-like pathways",
+   "recipe": "screen_glow",
+   "overlay": {
+    "kind": "steps",
+    "items": [
+     "m11",
+     "m12",
+     "m13",
+     "m14",
+     "m15",
+     "m16",
+     "m17"
+    ]
+   },
+   "narration_ids": [
+    "m7",
+    "m36"
+   ],
+   "bridge": "",
+   "narration": "인프라 제공에서 끝나는 것이 아니라 기술지원, AI 개발, 현장실증, 서비스 운영과 사업화까지 하나의 지원체계로 연결됩니다. 기술컨설팅.",
+   "subtitle": "인프라 제공에서 끝나는 것이 아니라 기술지원, AI 개발, 현장실증, 서비스 운영과 사업화까지 하나의 지원체계로 연결됩니다. 기술컨설팅."
+  },
+  {
+   "index": 5,
+   "role": "social_proof",
+   "start": 50.0,
+   "seconds": 10,
+   "visual": "photo",
+   "asset": "a13",
+   "asset_file": "GB-HAFA-collab-draft (1)_pdf_p01_11.jpg",
+   "asset_kind": "real_people",
+   "asset_subject": "a group of people attending a conference or meeting in a wooden hall, seated at tables with a banner in front",
+   "recipe": "gentle_life",
+   "overlay": {
+    "kind": "counter",
+    "items": [
+     "f18",
+     "f19",
+     "f20",
+     "f21"
+    ]
+   },
+   "narration_ids": [
+    "m23"
+   ],
+   "bridge": "",
+   "narration": "기업이 연결되면, 경북의 AI 생태계가 만들어집니다.",
+   "subtitle": "기업이 연결되면, 경북의 AI 생태계가 만들어집니다."
+  },
+  {
+   "index": 6,
+   "role": "cta",
+   "start": 60.0,
+   "seconds": 10,
+   "visual": "graphic",
+   "asset": null,
+   "asset_file": null,
+   "asset_kind": null,
+   "asset_subject": null,
+   "recipe": null,
+   "overlay": {
+    "kind": "end_card",
+    "items": []
+   },
+   "narration_ids": [
+    "m25"
+   ],
+   "bridge": "",
+   "narration": "AI를 위한 모든 환경을 직접 갖출 필요는 없습니다. 필요한 환경을 선택하고, GBCLOUD.AI에서 시작하세요.",
+   "subtitle": "AI를 위한 모든 환경을 직접 갖출 필요는 없습니다. 필요한 환경을 선택하고, GBCLOUD.AI에서 시작하세요."
+  }
+ ]
+}

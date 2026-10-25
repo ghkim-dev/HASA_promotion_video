@@ -1,0 +1,55 @@
+{
+  "_about": "홍보영상용 움직임 레시피. 사진 종류별로 영상 모델 지시문(prompt), GPU 없이 초안을 만들 때 쓰는 켄 번스(줌·이동) 값, 생성 후 확인할 검사 질문을 함께 정한다. 실제 시설 사진은 모양을 바꾸지 않는 느린 카메라 움직임만 쓴다.",
+  "common_negative": "new text, letters, subtitles, watermark, logo change, signage change, distorted building, warped windows, extra people, deformed faces, flicker, sudden cut, fast shaky camera, low quality",
+  "recipes": {
+    "aerial_push": {
+      "kinds": ["real_building"], "label": "드론 접근 (건물 외관)",
+      "prompt": "Cinematic aerial drone shot slowly gliding toward {subject}, gently rising, clouds drifting across the blue sky, soft sunlight on the facade, trees swaying slightly. The building's shape, windows and colours stay exactly the same. Smooth, stable, corporate promotional film.",
+      "kenburns": {"zoom": [1.0, 1.14], "pan": [0.0, -0.03]},
+      "checks": ["Is the building's overall shape and window layout the same as in the first frame?", "Do the sky and clouds move while the building stays solid?", "Is the frame free of new text, letters or signs that were not in the first frame?"]
+    },
+    "crane_up": {
+      "kinds": ["real_building"], "label": "크레인 상승 (건물 외관)",
+      "prompt": "Slow cinematic crane shot rising up in front of {subject}, revealing the sky, clouds moving gently, warm daylight. The building does not change. Stable, elegant camera motion.",
+      "kenburns": {"zoom": [1.08, 1.08], "pan": [0.0, -0.06]},
+      "checks": ["Is the building's overall shape the same as in the first frame?", "Does the camera move upward smoothly?", "Is the frame free of new text or signs?"]
+    },
+    "corridor_dolly": {
+      "kinds": ["concept_tech"], "match": ["server", "data center", "datacenter", "rack", "corridor", "globe"], "label": "서버 복도 전진",
+      "prompt": "Smooth forward dolly through {subject}, server LEDs blinking in rhythm, beams of cyan light pulsing along the floor, subtle volumetric haze, high-tech and calm. No text.",
+      "kenburns": {"zoom": [1.0, 1.18], "pan": [0.0, 0.0]},
+      "checks": ["Does the camera move forward through the scene?", "Do lights or LEDs change or pulse between frames?", "Is the frame free of new text or letters?"]
+    },
+    "data_flow": {
+      "kinds": ["concept_tech"], "match": ["network", "data", "stream", "particle", "light", "mesh", "circuit", "chip"], "label": "데이터 흐름",
+      "prompt": "{subject} comes alive: glowing particles and light streaks flow smoothly along the lines, nodes pulse softly, slow parallax camera drift to the right, deep blue and violet tones. No text.",
+      "kenburns": {"zoom": [1.04, 1.12], "pan": [0.03, 0.0]},
+      "checks": ["Do light streaks or particles move between frames?", "Is the motion smooth without sudden jumps?", "Is the frame free of new text or letters?"]
+    },
+    "cloud_float": {
+      "kinds": ["concept_tech"], "match": ["cloud", "hand", "hologram"], "label": "클라우드 부유",
+      "prompt": "{subject}: the glowing cloud floats and rotates slowly, soft light pulses around it, small data particles rise upward, gentle camera push-in. No text.",
+      "kenburns": {"zoom": [1.0, 1.1], "pan": [0.0, -0.01]},
+      "checks": ["Does the glowing object move or pulse between frames?", "Is the frame free of new text or letters?"]
+    },
+    "screen_glow": {
+      "kinds": ["concept_tech", "real_interior"], "match": ["control room", "monitor", "screen", "dashboard", "operator"], "label": "관제실 화면",
+      "prompt": "{subject}: the large screens update with flowing charts and blinking data, the operator makes a small natural movement, slow push-in toward the screens, cool blue light. The person keeps the same appearance. No readable new text.",
+      "kenburns": {"zoom": [1.0, 1.1], "pan": [0.02, 0.0]},
+      "checks": ["Do the screens show changing content?", "Does the person keep the same appearance?", "Is the camera motion slow and stable?"]
+    },
+    "skyline_drift": {
+      "kinds": ["concept_city", "real_landscape"], "label": "도시·풍경 흐름",
+      "prompt": "{subject}: slow lateral camera drift to the right, clouds and haze move gently, sunlight shimmers on glass, a few tiny light trails travel along the streets. Calm, hopeful, cinematic. No text.",
+      "kenburns": {"zoom": [1.06, 1.1], "pan": [0.05, 0.0]},
+      "checks": ["Does the camera drift sideways smoothly?", "Do clouds or light change between frames?", "Is the frame free of new text or letters?"]
+    },
+    "gentle_life": {
+      "kinds": ["real_people"], "label": "사람·행사 (자연스러운 움직임)",
+      "prompt": "{subject}: the people make small natural movements — nodding, turning pages, gesturing while talking — slow cinematic push-in, warm light. Every person keeps exactly the same face and clothes; nobody new appears.",
+      "kenburns": {"zoom": [1.0, 1.08], "pan": [0.0, 0.0]},
+      "checks": ["Do all people keep the same faces and clothes?", "Is the number of people the same as in the first frame?", "Is the movement natural and small?"]
+    }
+  },
+  "fallback": "data_flow"
+}

@@ -1,0 +1,433 @@
+{
+  "_about": "홍보영상 문법. 형식(format)마다 비트(beat) 순서·길이·화면 종류·덧씌울 그래픽·내레이션 역할을 정한다. 스토리보드 단계는 이 틀 안에서 사진·사실·문구만 고른다.",
+  "formats": {
+    "short": {
+      "label": "숏폼 (SNS·박람회 루프)",
+      "aspect": "9:16",
+      "canvas": "720x1280",
+      "fps": 24,
+      "beats": [
+        {
+          "role": "hook",
+          "seconds": 3,
+          "visual": "photo",
+          "asset_kinds": [
+            "concept_tech",
+            "concept_city",
+            "real_building"
+          ],
+          "overlay": "title",
+          "message_tags": [
+            "tagline"
+          ],
+          "narration": "none",
+          "prefer_recipes": [
+            "skyline_drift",
+            "cloud_float",
+            "aerial_push"
+          ]
+        },
+        {
+          "role": "problem",
+          "seconds": 4,
+          "visual": "photo",
+          "asset_kinds": [
+            "concept_tech",
+            "real_people",
+            "concept_city"
+          ],
+          "overlay": "bullets",
+          "message_tags": [
+            "pain"
+          ],
+          "max_items": 2,
+          "narration": "none",
+          "prefer_recipes": [
+            "data_flow",
+            "skyline_drift"
+          ]
+        },
+        {
+          "role": "hero",
+          "seconds": 5,
+          "visual": "photo",
+          "asset_kinds": [
+            "real_building",
+            "real_interior"
+          ],
+          "overlay": "lower_third",
+          "message_tags": [
+            "org",
+            "location"
+          ],
+          "narration": "none",
+          "max_items": 2,
+          "prefer_recipes": [
+            "aerial_push",
+            "crane_up"
+          ]
+        },
+        {
+          "role": "proof",
+          "seconds": 6,
+          "visual": "photo",
+          "asset_kinds": [
+            "concept_tech",
+            "real_interior"
+          ],
+          "overlay": "counter",
+          "fact_tags": [
+            "infra"
+          ],
+          "max_items": 2,
+          "narration": "none",
+          "prefer_recipes": [
+            "corridor_dolly",
+            "screen_glow"
+          ]
+        },
+        {
+          "role": "cta",
+          "seconds": 6,
+          "visual": "graphic",
+          "overlay": "end_card",
+          "narration": "none"
+        }
+      ]
+    },
+    "main": {
+      "label": "메인 (홈페이지·행사 오프닝)",
+      "aspect": "16:9",
+      "canvas": "1280x720",
+      "fps": 24,
+      "beats": [
+        {
+          "role": "hook",
+          "seconds": 6,
+          "visual": "photo",
+          "asset_kinds": [
+            "concept_city",
+            "concept_tech",
+            "real_building"
+          ],
+          "overlay": "title",
+          "message_tags": [
+            "tagline"
+          ],
+          "narration": "tagline",
+          "prefer_recipes": [
+            "skyline_drift",
+            "cloud_float",
+            "aerial_push"
+          ]
+        },
+        {
+          "role": "problem",
+          "seconds": 9,
+          "visual": "photo",
+          "asset_kinds": [
+            "concept_tech",
+            "real_people",
+            "concept_city"
+          ],
+          "overlay": "bullets",
+          "message_tags": [
+            "pain"
+          ],
+          "max_items": 3,
+          "narration": "pain",
+          "prefer_recipes": [
+            "data_flow",
+            "skyline_drift"
+          ]
+        },
+        {
+          "role": "hero",
+          "seconds": 9,
+          "visual": "photo",
+          "asset_kinds": [
+            "real_building",
+            "real_interior"
+          ],
+          "overlay": "lower_third",
+          "message_tags": [
+            "org",
+            "location"
+          ],
+          "narration": "mission",
+          "max_items": 2,
+          "prefer_recipes": [
+            "aerial_push",
+            "crane_up"
+          ]
+        },
+        {
+          "role": "proof",
+          "seconds": 14,
+          "visual": "photo",
+          "asset_kinds": [
+            "concept_tech",
+            "real_interior"
+          ],
+          "overlay": "counter",
+          "fact_tags": [
+            "infra"
+          ],
+          "max_items": 4,
+          "narration": "infra",
+          "prefer_recipes": [
+            "corridor_dolly",
+            "screen_glow"
+          ]
+        },
+        {
+          "role": "process",
+          "seconds": 12,
+          "visual": "photo",
+          "asset_kinds": [
+            "concept_tech",
+            "real_people",
+            "concept_city"
+          ],
+          "overlay": "steps",
+          "message_tags": [
+            "step"
+          ],
+          "max_items": 7,
+          "narration": "process",
+          "prefer_recipes": [
+            "screen_glow",
+            "cloud_float"
+          ]
+        },
+        {
+          "role": "social_proof",
+          "seconds": 10,
+          "visual": "photo",
+          "asset_kinds": [
+            "real_people",
+            "concept_city",
+            "concept_tech"
+          ],
+          "overlay": "counter",
+          "fact_tags": [
+            "community"
+          ],
+          "max_items": 4,
+          "narration": "community",
+          "prefer_recipes": [
+            "gentle_life",
+            "skyline_drift"
+          ]
+        },
+        {
+          "role": "cta",
+          "seconds": 10,
+          "visual": "graphic",
+          "overlay": "end_card",
+          "narration": "cta"
+        }
+      ]
+    },
+    "explainer": {
+      "label": "설명형 (상담·설명회)",
+      "aspect": "16:9",
+      "canvas": "1280x720",
+      "fps": 24,
+      "beats": [
+        {
+          "role": "hook",
+          "seconds": 8,
+          "visual": "photo",
+          "asset_kinds": [
+            "concept_city",
+            "concept_tech",
+            "real_building"
+          ],
+          "overlay": "title",
+          "message_tags": [
+            "tagline"
+          ],
+          "narration": "tagline",
+          "prefer_recipes": [
+            "skyline_drift",
+            "cloud_float",
+            "aerial_push"
+          ]
+        },
+        {
+          "role": "problem",
+          "seconds": 18,
+          "visual": "photo",
+          "asset_kinds": [
+            "concept_tech",
+            "real_people",
+            "concept_city"
+          ],
+          "overlay": "bullets",
+          "message_tags": [
+            "pain"
+          ],
+          "max_items": 4,
+          "narration": "pain",
+          "prefer_recipes": [
+            "data_flow",
+            "skyline_drift"
+          ]
+        },
+        {
+          "role": "hero",
+          "seconds": 14,
+          "visual": "photo",
+          "asset_kinds": [
+            "real_building",
+            "real_interior"
+          ],
+          "overlay": "lower_third",
+          "message_tags": [
+            "org",
+            "location"
+          ],
+          "narration": "mission",
+          "max_items": 2,
+          "prefer_recipes": [
+            "aerial_push",
+            "crane_up"
+          ]
+        },
+        {
+          "role": "offering",
+          "seconds": 18,
+          "visual": "photo",
+          "asset_kinds": [
+            "concept_tech",
+            "real_interior"
+          ],
+          "overlay": "title",
+          "message_tags": [
+            "offering"
+          ],
+          "narration": "offering",
+          "nth": 0,
+          "prefer_recipes": [
+            "cloud_float",
+            "corridor_dolly",
+            "screen_glow",
+            "data_flow"
+          ]
+        },
+        {
+          "role": "proof",
+          "seconds": 18,
+          "visual": "photo",
+          "asset_kinds": [
+            "concept_tech",
+            "real_interior"
+          ],
+          "overlay": "counter",
+          "fact_tags": [
+            "infra"
+          ],
+          "max_items": 4,
+          "narration": "infra",
+          "prefer_recipes": [
+            "corridor_dolly",
+            "screen_glow"
+          ]
+        },
+        {
+          "role": "offering",
+          "seconds": 18,
+          "visual": "photo",
+          "asset_kinds": [
+            "concept_tech",
+            "real_interior",
+            "real_people"
+          ],
+          "overlay": "title",
+          "message_tags": [
+            "offering"
+          ],
+          "narration": "offering",
+          "nth": 1,
+          "prefer_recipes": [
+            "cloud_float",
+            "corridor_dolly",
+            "screen_glow",
+            "data_flow"
+          ]
+        },
+        {
+          "role": "process",
+          "seconds": 24,
+          "visual": "photo",
+          "asset_kinds": [
+            "concept_tech",
+            "real_people",
+            "concept_city"
+          ],
+          "overlay": "steps",
+          "message_tags": [
+            "step"
+          ],
+          "max_items": 7,
+          "narration": "process",
+          "prefer_recipes": [
+            "screen_glow",
+            "cloud_float"
+          ]
+        },
+        {
+          "role": "offering",
+          "seconds": 18,
+          "visual": "photo",
+          "asset_kinds": [
+            "real_people",
+            "concept_city",
+            "concept_tech"
+          ],
+          "overlay": "title",
+          "message_tags": [
+            "offering"
+          ],
+          "narration": "offering",
+          "nth": 2,
+          "prefer_recipes": [
+            "cloud_float",
+            "corridor_dolly",
+            "screen_glow",
+            "data_flow"
+          ]
+        },
+        {
+          "role": "social_proof",
+          "seconds": 16,
+          "visual": "photo",
+          "asset_kinds": [
+            "real_people",
+            "concept_city",
+            "concept_tech"
+          ],
+          "overlay": "counter",
+          "fact_tags": [
+            "community"
+          ],
+          "max_items": 4,
+          "narration": "community",
+          "prefer_recipes": [
+            "gentle_life",
+            "skyline_drift"
+          ]
+        },
+        {
+          "role": "cta",
+          "seconds": 14,
+          "visual": "graphic",
+          "overlay": "end_card",
+          "narration": "cta"
+        }
+      ]
+    }
+  },
+  "narration_chars_per_second": 6.5
+}

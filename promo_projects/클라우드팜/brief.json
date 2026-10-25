@@ -1,0 +1,1871 @@
+{
+ "org": {
+  "name": "경북 초거대 AI 클라우드팜 사업단",
+  "tagline": "경북에서 시작하는 AI 미래"
+ },
+ "brand": {
+  "primary": "#1c8bb5",
+  "secondary": "#4476b3",
+  "accent": "#215593",
+  "dark": "#101a3d",
+  "light": "#eef3ff",
+  "text": "#ffffff",
+  "font": "",
+  "font_bold": "",
+  "logo": ""
+ },
+ "facts": [
+  {
+   "id": "f1",
+   "label": "규모",
+   "display": "지하 1층 ~ 지상 5층",
+   "unit": "",
+   "tags": [
+    "infra"
+   ],
+   "page": 3,
+   "quote": "규        모  |  지하 1층 ~ 지상 5층",
+   "status": "ok",
+   "where": "261019_시안02.pdf 3쪽"
+  },
+  {
+   "id": "f2",
+   "label": "연면적",
+   "display": "6,967m²",
+   "unit": "m²",
+   "tags": [
+    "infra"
+   ],
+   "page": 3,
+   "quote": "연 면 적  |  6,967m²(부지 4,174m²)",
+   "status": "ok",
+   "where": "261019_시안02.pdf 3쪽"
+  },
+  {
+   "id": "f3",
+   "label": "부지 면적",
+   "display": "4,174m²",
+   "unit": "m²",
+   "tags": [
+    "infra"
+   ],
+   "page": 3,
+   "quote": "연 면 적  |  6,967m²(부지 4,174m²)",
+   "status": "ok",
+   "where": "261019_시안02.pdf 3쪽"
+  },
+  {
+   "id": "f4",
+   "label": "주소",
+   "display": "경상북도 경산시 진량읍 공단9로 12길 25",
+   "unit": "",
+   "tags": [
+    "location"
+   ],
+   "page": 3,
+   "quote": "주        소  |  경상북도 경산시 진량읍 공단9로 12길 25",
+   "status": "ok",
+   "where": "261019_시안02.pdf 3쪽"
+  },
+  {
+   "id": "f5",
+   "label": "연면적",
+   "display": "5,234m²",
+   "unit": "m²",
+   "tags": [
+    "infra"
+   ],
+   "page": 3,
+   "quote": "연 면 적  |  5,234m²(부지 6,390m²)",
+   "status": "ok",
+   "where": "261019_시안02.pdf 3쪽"
+  },
+  {
+   "id": "f6",
+   "label": "부지 면적",
+   "display": "6,390m²",
+   "unit": "m²",
+   "tags": [
+    "infra"
+   ],
+   "page": 3,
+   "quote": "연 면 적  |  5,234m²(부지 6,390m²)",
+   "status": "ok",
+   "where": "261019_시안02.pdf 3쪽"
+  },
+  {
+   "id": "f7",
+   "label": "주소",
+   "display": "경상북도 경산시 진량읍 공단9로 12길 1",
+   "unit": "",
+   "tags": [
+    "location"
+   ],
+   "page": 3,
+   "quote": "주        소  |  경상북도 경산시 진량읍 공단9로 12길 1",
+   "status": "ok",
+   "where": "261019_시안02.pdf 3쪽"
+  },
+  {
+   "id": "f8",
+   "label": "CPU 코어",
+   "display": "2,204 Core",
+   "unit": "Core",
+   "tags": [
+    "infra"
+   ],
+   "page": 6,
+   "quote": "2,204 Core",
+   "status": "ok",
+   "where": "261019_시안02.pdf 6쪽"
+  },
+  {
+   "id": "f9",
+   "label": "HDD 스토리지",
+   "display": "2,376 TB",
+   "unit": "TB",
+   "tags": [
+    "infra"
+   ],
+   "page": 6,
+   "quote": "2,376 TB",
+   "status": "ok",
+   "where": "261019_시안02.pdf 6쪽"
+  },
+  {
+   "id": "f10",
+   "label": "RAM",
+   "display": "9,434 GB",
+   "unit": "GB",
+   "tags": [
+    "infra"
+   ],
+   "page": 6,
+   "quote": "9,434 GB",
+   "status": "ok",
+   "where": "261019_시안02.pdf 6쪽"
+  },
+  {
+   "id": "f11",
+   "label": "SSD 스토리지",
+   "display": "69 TB",
+   "unit": "TB",
+   "tags": [
+    "infra"
+   ],
+   "page": 6,
+   "quote": "69 TB",
+   "status": "ok",
+   "where": "261019_시안02.pdf 6쪽"
+  },
+  {
+   "id": "f12",
+   "label": "GPU 수",
+   "display": "112",
+   "unit": "GPUs",
+   "tags": [
+    "infra"
+   ],
+   "page": 7,
+   "quote": "112\n56\n48\n8\nGPUs\nH100\nH200\nB200",
+   "status": "ok",
+   "where": "261019_시안02.pdf 7쪽"
+  },
+  {
+   "id": "f13",
+   "label": "H100 GPU 수",
+   "display": "56",
+   "unit": "장",
+   "tags": [
+    "infra"
+   ],
+   "page": 7,
+   "quote": "56\nH100",
+   "status": "unverified",
+   "where": "261019_시안02.pdf 7쪽"
+  },
+  {
+   "id": "f14",
+   "label": "H200 GPU 수",
+   "display": "48",
+   "unit": "장",
+   "tags": [
+    "infra"
+   ],
+   "page": 7,
+   "quote": "48\nH200",
+   "status": "unverified",
+   "where": "261019_시안02.pdf 7쪽"
+  },
+  {
+   "id": "f15",
+   "label": "B200 GPU 수",
+   "display": "8",
+   "unit": "장",
+   "tags": [
+    "infra"
+   ],
+   "page": 7,
+   "quote": "8\nB200",
+   "status": "unverified",
+   "where": "261019_시안02.pdf 7쪽"
+  },
+  {
+   "id": "f16",
+   "label": "네트워크 속도",
+   "display": "100 G",
+   "unit": "G",
+   "tags": [
+    "infra"
+   ],
+   "page": 7,
+   "quote": "100 G",
+   "status": "ok",
+   "where": "261019_시안02.pdf 7쪽"
+  },
+  {
+   "id": "f17",
+   "label": "GPU SSD 스토리지",
+   "display": "1.3PB",
+   "unit": "PB",
+   "tags": [
+    "infra"
+   ],
+   "page": 14,
+   "quote": "1.3PB\nGPU SSD 스토리지",
+   "status": "ok",
+   "where": "GB-HAFA-addon-leaflet.pdf 1쪽"
+  },
+  {
+   "id": "f18",
+   "label": "참여기업 수",
+   "display": "230+개사",
+   "unit": "개사",
+   "tags": [
+    "community"
+   ],
+   "page": 11,
+   "quote": "참여기업\n230+개사",
+   "status": "ok",
+   "where": "261019_시안02.pdf 11쪽"
+  },
+  {
+   "id": "f19",
+   "label": "발굴수요",
+   "display": "120+건",
+   "unit": "건",
+   "tags": [
+    "community"
+   ],
+   "page": 11,
+   "quote": "발굴수요\n120+건",
+   "status": "ok",
+   "where": "261019_시안02.pdf 11쪽"
+  },
+  {
+   "id": "f20",
+   "label": "PoC 진행 과제 수",
+   "display": "45+과제",
+   "unit": "과제",
+   "tags": [
+    "community"
+   ],
+   "page": 11,
+   "quote": "PoC 진행\n45+과제",
+   "status": "ok",
+   "where": "261019_시안02.pdf 11쪽"
+  },
+  {
+   "id": "f21",
+   "label": "공동 R&D 과제 수",
+   "display": "20+과제",
+   "unit": "과제",
+   "tags": [
+    "community"
+   ],
+   "page": 11,
+   "quote": "공동 R&D\n20+과제",
+   "status": "ok",
+   "where": "261019_시안02.pdf 11쪽"
+  },
+  {
+   "id": "f22",
+   "label": "총사업비",
+   "display": "98억 원",
+   "unit": "원",
+   "tags": [
+    "history"
+   ],
+   "page": 17,
+   "quote": "총사업비 98억 원",
+   "status": "ok",
+   "where": "GB-HAFA-collab-draft (1).pdf 2쪽"
+  },
+  {
+   "id": "f23",
+   "label": "시작일",
+   "display": "2020.02",
+   "unit": "",
+   "tags": [
+    "history"
+   ],
+   "page": 3,
+   "quote": "1단계\n2020.02~2022.12",
+   "status": "ok",
+   "where": "261019_시안02.pdf 3쪽"
+  },
+  {
+   "id": "f24",
+   "label": "종료일",
+   "display": "2022.12",
+   "unit": "",
+   "tags": [
+    "history"
+   ],
+   "page": 3,
+   "quote": "1단계\n2020.02~2022.12",
+   "status": "ok",
+   "where": "261019_시안02.pdf 3쪽"
+  },
+  {
+   "id": "f25",
+   "label": "시작일",
+   "display": "2024.07",
+   "unit": "",
+   "tags": [
+    "history"
+   ],
+   "page": 3,
+   "quote": "2단계\n2024.07~2026.12",
+   "status": "ok",
+   "where": "261019_시안02.pdf 3쪽"
+  },
+  {
+   "id": "f26",
+   "label": "종료일",
+   "display": "2026.12",
+   "unit": "",
+   "tags": [
+    "history"
+   ],
+   "page": 3,
+   "quote": "2단계\n2024.07~2026.12",
+   "status": "ok",
+   "where": "261019_시안02.pdf 3쪽"
+  },
+  {
+   "id": "f27",
+   "label": "시작일",
+   "display": "2026.08",
+   "unit": "",
+   "tags": [
+    "history"
+   ],
+   "page": 3,
+   "quote": "3단계\n2026.08~현재",
+   "status": "ok",
+   "where": "261019_시안02.pdf 3쪽"
+  },
+  {
+   "id": "f28",
+   "label": "커뮤니티 시작일",
+   "display": "2025.07",
+   "unit": "",
+   "tags": [
+    "history"
+   ],
+   "page": 11,
+   "quote": "AI BUILD-UP COMMUNITY\n2025. 07 START",
+   "status": "ok",
+   "where": "261019_시안02.pdf 11쪽"
+  },
+  {
+   "id": "f29",
+   "label": "CPU 클라우드 기본형 요금",
+   "display": "115,000원",
+   "unit": "원",
+   "tags": [
+    "contact"
+   ],
+   "page": 15,
+   "quote": "CPU 클라우드\n기본형 4 vCore / 16GB\n115,000원",
+   "status": "ok",
+   "where": "GB-HAFA-addon-leaflet.pdf 2쪽"
+  },
+  {
+   "id": "f30",
+   "label": "CPU 클라우드 확장형 요금",
+   "display": "219,000원",
+   "unit": "원",
+   "tags": [
+    "contact"
+   ],
+   "page": 15,
+   "quote": "확장형 8 vCore / 32GB\n219,000원",
+   "status": "ok",
+   "where": "GB-HAFA-addon-leaflet.pdf 2쪽"
+  },
+  {
+   "id": "f31",
+   "label": "GPU H100 정가",
+   "display": "3,000,000원",
+   "unit": "원",
+   "tags": [
+    "contact"
+   ],
+   "page": 15,
+   "quote": "GPU H100 · 1장\n정가\n3,000,000원",
+   "status": "ok",
+   "where": "GB-HAFA-addon-leaflet.pdf 2쪽"
+  },
+  {
+   "id": "f32",
+   "label": "GPU H100 대경권 할인가",
+   "display": "1,134,000원",
+   "unit": "원",
+   "tags": [
+    "contact"
+   ],
+   "page": 15,
+   "quote": "대경권\n1,134,000원",
+   "status": "ok",
+   "where": "GB-HAFA-addon-leaflet.pdf 2쪽"
+  },
+  {
+   "id": "f33",
+   "label": "추론 API 대경권 정가",
+   "display": "300,000원",
+   "unit": "원",
+   "tags": [
+    "contact"
+   ],
+   "page": 15,
+   "quote": "추론 API\n대경권\n300,000원",
+   "status": "ok",
+   "where": "GB-HAFA-addon-leaflet.pdf 2쪽"
+  },
+  {
+   "id": "f34",
+   "label": "추론 API 대경권 할인가",
+   "display": "150,000원",
+   "unit": "원",
+   "tags": [
+    "contact"
+   ],
+   "page": 15,
+   "quote": "대경권\n150,000원",
+   "status": "ok",
+   "where": "GB-HAFA-addon-leaflet.pdf 2쪽"
+  },
+  {
+   "id": "f35",
+   "label": "대표전화",
+   "display": "053-245-5000",
+   "unit": "",
+   "tags": [
+    "contact"
+   ],
+   "page": 13,
+   "quote": "대표전화 | 053-245-5000",
+   "status": "ok",
+   "where": "261019_시안02.pdf 13쪽"
+  },
+  {
+   "id": "f36",
+   "label": "교육문의 전화",
+   "display": "053-245-5066",
+   "unit": "",
+   "tags": [
+    "contact"
+   ],
+   "page": 13,
+   "quote": "교육문의 | 053-245-5066",
+   "status": "ok",
+   "where": "261019_시안02.pdf 13쪽"
+  },
+  {
+   "id": "f37",
+   "label": "장비문의 전화",
+   "display": "053-245-5014",
+   "unit": "",
+   "tags": [
+    "contact"
+   ],
+   "page": 13,
+   "quote": "장비문의 | 053-245-5014",
+   "status": "ok",
+   "where": "261019_시안02.pdf 13쪽"
+  },
+  {
+   "id": "f38",
+   "label": "기술지원 전화",
+   "display": "053-245-5073 / 5055",
+   "unit": "",
+   "tags": [
+    "contact"
+   ],
+   "page": 14,
+   "quote": "053-245-5073 / 5055",
+   "status": "ok",
+   "where": "GB-HAFA-addon-leaflet.pdf 1쪽"
+  }
+ ],
+ "messages": [
+  {
+   "id": "m1",
+   "tag": "tagline",
+   "text": "경북에서 시작하는 AI 미래",
+   "short": "경북에서 시작하는 AI 미래",
+   "page": 1,
+   "status": "ok",
+   "where": "261019_시안02.pdf 1쪽"
+  },
+  {
+   "id": "m2",
+   "tag": "tagline",
+   "text": "경북에서 시작하는 AI 혁신의 물결",
+   "short": "경북에서 시작하는 AI 혁신의 물결",
+   "page": 2,
+   "status": "ok",
+   "where": "261019_시안02.pdf 2쪽"
+  },
+  {
+   "id": "m3",
+   "tag": "org",
+   "text": "경북 초거대 AI 클라우드팜 사업단",
+   "short": "경북 초거대 AI 클라우드팜 사업단",
+   "page": 1,
+   "status": "ok",
+   "where": "261019_시안02.pdf 1쪽"
+  },
+  {
+   "id": "m4",
+   "tag": "org",
+   "text": "경북IT융합산업기술원",
+   "short": "경북IT융합산업기술원",
+   "page": 3,
+   "status": "ok",
+   "where": "261019_시안02.pdf 3쪽"
+  },
+  {
+   "id": "m5",
+   "tag": "location",
+   "text": "경상북도 경산시 진량읍 공단9로 12길 25",
+   "short": "경산시 진량읍 공단9로 12길 25",
+   "page": 3,
+   "status": "ok",
+   "where": "261019_시안02.pdf 3쪽"
+  },
+  {
+   "id": "m6",
+   "tag": "mission",
+   "text": "경북에서 AI가 실제로 실행되도록 합니다.",
+   "short": "경북에서 AI가 실제로 실행되도록 합니다.",
+   "page": 4,
+   "status": "ok",
+   "where": "261019_시안02.pdf 4쪽"
+  },
+  {
+   "id": "m7",
+   "tag": "process",
+   "text": "인프라 제공에서 끝나는 것이 아니라 기술지원, AI 개발, 현장실증, 서비스 운영과 사업화까지 하나의 지원체계로 연결됩니다.",
+   "short": "인프라 제공에서 끝나는 것이 아니라 기술지원, AI 개발, 현장실증, 서비스 운영과 사업화까지 하나의 지원체계로 연결됩니다.",
+   "page": 4,
+   "status": "ok",
+   "where": "261019_시안02.pdf 4쪽"
+  },
+  {
+   "id": "m8",
+   "tag": "offering",
+   "text": "GBCLOUD.AI를 통해 필요한 Cloud와 AI 서비스를 이용",
+   "short": "GBCLOUD.AI를 통해 Cloud와 AI 서비스 이용",
+   "page": 4,
+   "status": "ok",
+   "where": "261019_시안02.pdf 4쪽"
+  },
+  {
+   "id": "m9",
+   "tag": "infra",
+   "text": "두 개의 ZONE, 하나의 AI 실행 인프라",
+   "short": "두 개의 ZONE, 하나의 AI 실행 인프라",
+   "page": 5,
+   "status": "ok",
+   "where": "261019_시안02.pdf 5쪽"
+  },
+  {
+   "id": "m10",
+   "tag": "infra",
+   "text": "CPU ZONE은 데이터와 디지털 서비스를 안정적으로 운영하는 기반을 제공하고, GPU ZONE은 그 데이터를 활용하여 AI 모델을 개발하고 학습·추론하는 고성능 연산환경을 제공합니다.",
+   "short": "CPU ZONE은 데이터 운영 기반, GPU ZONE은 AI 학습·추론 환경",
+   "page": 5,
+   "status": "ok",
+   "where": "261019_시안02.pdf 5쪽"
+  },
+  {
+   "id": "m11",
+   "tag": "step",
+   "text": "1단계 2020.02~2022.12 클라우드데이터센터(CPU존) 구축",
+   "short": "",
+   "page": 3,
+   "status": "ok",
+   "where": "261019_시안02.pdf 3쪽"
+  },
+  {
+   "id": "m12",
+   "tag": "step",
+   "text": "2단계 2024.07~2026.12 초거대AI클라우드팜센터(GPU존) 구축",
+   "short": "",
+   "page": 3,
+   "status": "ok",
+   "where": "261019_시안02.pdf 3쪽"
+  },
+  {
+   "id": "m13",
+   "tag": "step",
+   "text": "3단계 2026.08~현재 K-AI 반도체데이터센터(NPU존) 구축 중",
+   "short": "",
+   "page": 3,
+   "status": "ok",
+   "where": "261019_시안02.pdf 3쪽"
+  },
+  {
+   "id": "m14",
+   "tag": "step",
+   "text": "DISCOVER | 진단",
+   "short": "DISCOVER | 진단",
+   "page": 9,
+   "status": "ok",
+   "where": "261019_시안02.pdf 9쪽"
+  },
+  {
+   "id": "m15",
+   "tag": "step",
+   "text": "DESIGN | 설계",
+   "short": "DESIGN | 설계",
+   "page": 9,
+   "status": "ok",
+   "where": "261019_시안02.pdf 9쪽"
+  },
+  {
+   "id": "m16",
+   "tag": "step",
+   "text": "BUILD | 개발",
+   "short": "BUILD | 개발",
+   "page": 9,
+   "status": "ok",
+   "where": "261019_시안02.pdf 9쪽"
+  },
+  {
+   "id": "m17",
+   "tag": "step",
+   "text": "VALIDATE | 실증",
+   "short": "VALIDATE | 실증",
+   "page": 9,
+   "status": "ok",
+   "where": "261019_시안02.pdf 9쪽"
+  },
+  {
+   "id": "m18",
+   "tag": "step",
+   "text": "SERVE | 운영",
+   "short": "SERVE | 운영",
+   "page": 9,
+   "status": "ok",
+   "where": "261019_시안02.pdf 9쪽"
+  },
+  {
+   "id": "m19",
+   "tag": "step",
+   "text": "GROW | 확산",
+   "short": "GROW | 확산",
+   "page": 9,
+   "status": "ok",
+   "where": "261019_시안02.pdf 9쪽"
+  },
+  {
+   "id": "m20",
+   "tag": "offering",
+   "text": "AI 개발 플랫폼 지원",
+   "short": "AI 개발 플랫폼 지원",
+   "page": 3,
+   "status": "ok",
+   "where": "261019_시안02.pdf 3쪽"
+  },
+  {
+   "id": "m21",
+   "tag": "offering",
+   "text": "MLOps 기반 AI 원스톱 개발환경 제공",
+   "short": "MLOps 기반 AI 원스톱 개발환경",
+   "page": 3,
+   "status": "ok",
+   "where": "261019_시안02.pdf 3쪽"
+  },
+  {
+   "id": "m22",
+   "tag": "offering",
+   "text": "고성능 GPU 서버, AI학습 · 추론 인프라, 대용량 데이터 처리 인프라, 보안장비 등",
+   "short": "고성능 GPU 서버, AI학습·추론 인프라",
+   "page": 3,
+   "status": "ok",
+   "where": "261019_시안02.pdf 3쪽"
+  },
+  {
+   "id": "m23",
+   "tag": "community",
+   "text": "기업이 연결되면, 경북의 AI 생태계가 만들어집니다",
+   "short": "기업이 연결되면, 경북의 AI 생태계가 만들어집니다",
+   "page": 11,
+   "status": "ok",
+   "where": "261019_시안02.pdf 11쪽"
+  },
+  {
+   "id": "m24",
+   "tag": "community",
+   "text": "사람은 Community에서 연결하고, 기술은 GBCLOUD.AI에서 실행합니다.",
+   "short": "사람은 Community에서 연결, 기술은 GBCLOUD.AI에서 실행",
+   "page": 11,
+   "status": "ok",
+   "where": "261019_시안02.pdf 11쪽"
+  },
+  {
+   "id": "m25",
+   "tag": "cta",
+   "text": "AI를 위한 모든 환경을 직접 갖출 필요는 없습니다. 필요한 환경을 선택하고, GBCLOUD.AI에서 시작하세요.",
+   "short": "필요한 환경을 선택하고, GBCLOUD.AI에서 시작하세요",
+   "page": 12,
+   "status": "ok",
+   "where": "261019_시안02.pdf 12쪽"
+  },
+  {
+   "id": "m26",
+   "tag": "cta",
+   "text": "AI를 어디서부터 시작해야 할지 고민된다면 먼저 GB HAFA에 문의하세요.",
+   "short": "GB HAFA에 문의하세요",
+   "page": 12,
+   "status": "ok",
+   "where": "261019_시안02.pdf 12쪽"
+  },
+  {
+   "id": "m27",
+   "tag": "cta",
+   "text": "AI·Cloud 서비스, 지금 바로 신청하세요.",
+   "short": "AI·Cloud 서비스, 지금 바로 신청하세요",
+   "page": 15,
+   "status": "ok",
+   "where": "GB-HAFA-addon-leaflet.pdf 2쪽"
+  },
+  {
+   "id": "m28",
+   "tag": "pain",
+   "text": "고성능 AI 인프라가 부담됩니다",
+   "short": "고성능 AI 인프라가 부담됩니다",
+   "page": 12,
+   "status": "ok",
+   "where": "261019_시안02.pdf 12쪽"
+  },
+  {
+   "id": "m29",
+   "tag": "pain",
+   "text": "어떤 모델과 환경이 필요한지 모르겠습니다",
+   "short": "어떤 모델과 환경이 필요한지 모르겠습니다",
+   "page": 12,
+   "status": "ok",
+   "where": "261019_시안02.pdf 12쪽"
+  },
+  {
+   "id": "m30",
+   "tag": "pain",
+   "text": "데이터는 있지만 AI로 연결하기 어렵습니다",
+   "short": "데이터는 있지만 AI로 연결하기 어렵습니다",
+   "page": 12,
+   "status": "ok",
+   "where": "261019_시안02.pdf 12쪽"
+  },
+  {
+   "id": "m31",
+   "tag": "pain",
+   "text": "개발한 AI를 실제 서비스로 만들기 어렵습니다",
+   "short": "개발한 AI를 실제 서비스로 만들기 어렵습니다",
+   "page": 12,
+   "status": "ok",
+   "where": "261019_시안02.pdf 12쪽"
+  },
+  {
+   "id": "m32",
+   "tag": "solution",
+   "text": "필요한 규모의 Cloud·GPU 자원을 바로 활용합니다.",
+   "short": "필요한 규모의 Cloud·GPU 자원을 바로 활용",
+   "page": 12,
+   "status": "ok",
+   "where": "261019_시안02.pdf 12쪽"
+  },
+  {
+   "id": "m33",
+   "tag": "solution",
+   "text": "목표와 데이터에 맞는 AI 환경을 함께 설계합니다.",
+   "short": "목표와 데이터에 맞는 AI 환경을 함께 설계",
+   "page": 12,
+   "status": "ok",
+   "where": "261019_시안02.pdf 12쪽"
+  },
+  {
+   "id": "m34",
+   "tag": "solution",
+   "text": "CPU ZONE과 GPU ZONE을 하나의 환경으로 연결합니다.",
+   "short": "CPU ZONE과 GPU ZONE을 하나의 환경으로 연결",
+   "page": 12,
+   "status": "ok",
+   "where": "261019_시안02.pdf 12쪽"
+  },
+  {
+   "id": "m35",
+   "tag": "solution",
+   "text": "개발된 AI를 실증하고 서비스와 사업으로 연결합니다.",
+   "short": "개발된 AI를 실증하고 서비스와 사업으로 연결",
+   "page": 12,
+   "status": "ok",
+   "where": "261019_시안02.pdf 12쪽"
+  },
+  {
+   "id": "m36",
+   "tag": "offering",
+   "text": "기술컨설팅",
+   "short": "기술컨설팅",
+   "page": 3,
+   "status": "ok",
+   "where": "261019_시안02.pdf 3쪽"
+  },
+  {
+   "id": "m37",
+   "tag": "offering",
+   "text": "수요 맞춤형 AI 도입·활용 컨설팅 제공",
+   "short": "수요 맞춤형 AI 도입·활용 컨설팅",
+   "page": 3,
+   "status": "ok",
+   "where": "261019_시안02.pdf 3쪽"
+  },
+  {
+   "id": "m38",
+   "tag": "offering",
+   "text": "산학연 협력 생태계 조성",
+   "short": "산학연 협력 생태계 조성",
+   "page": 3,
+   "status": "ok",
+   "where": "261019_시안02.pdf 3쪽"
+  },
+  {
+   "id": "m39",
+   "tag": "offering",
+   "text": "지역특화 서비스 실증",
+   "short": "지역특화 서비스 실증",
+   "page": 3,
+   "status": "ok",
+   "where": "261019_시안02.pdf 3쪽"
+  },
+  {
+   "id": "m40",
+   "tag": "offering",
+   "text": "AI 교육·인력양성",
+   "short": "AI 교육·인력양성",
+   "page": 3,
+   "status": "ok",
+   "where": "261019_시안02.pdf 3쪽"
+  },
+  {
+   "id": "m41",
+   "tag": "offering",
+   "text": "기업 기술컨설팅 지원",
+   "short": "기업 기술컨설팅 지원",
+   "page": 3,
+   "status": "ok",
+   "where": "261019_시안02.pdf 3쪽"
+  },
+  {
+   "id": "m42",
+   "tag": "offering",
+   "text": "AI BUILD-UP COMMUNITY",
+   "short": "AI BUILD-UP COMMUNITY",
+   "page": 11,
+   "status": "ok",
+   "where": "261019_시안02.pdf 11쪽"
+  },
+  {
+   "id": "m43",
+   "tag": "offering",
+   "text": "R&D 공동발굴",
+   "short": "R&D 공동발굴",
+   "page": 10,
+   "status": "ok",
+   "where": "261019_시안02.pdf 10쪽"
+  },
+  {
+   "id": "m44",
+   "tag": "offering",
+   "text": "전주기 지원 체계",
+   "short": "전주기 지원 체계",
+   "page": 9,
+   "status": "ok",
+   "where": "261019_시안02.pdf 9쪽"
+  },
+  {
+   "id": "m45",
+   "tag": "offering",
+   "text": "통합 콘솔 & 이용관리",
+   "short": "통합 콘솔 & 이용관리",
+   "page": 4,
+   "status": "ok",
+   "where": "261019_시안02.pdf 4쪽"
+  },
+  {
+   "id": "m46",
+   "tag": "offering",
+   "text": "Cloud 서비스 포털",
+   "short": "Cloud 서비스 포털",
+   "page": 4,
+   "status": "ok",
+   "where": "261019_시안02.pdf 4쪽"
+  },
+  {
+   "id": "m47",
+   "tag": "offering",
+   "text": "AI 서비스 카탈로그",
+   "short": "AI 서비스 카탈로그",
+   "page": 4,
+   "status": "ok",
+   "where": "261019_시안02.pdf 4쪽"
+  },
+  {
+   "id": "m48",
+   "tag": "offering",
+   "text": "기술지원·컨설팅 연계",
+   "short": "기술지원·컨설팅 연계",
+   "page": 4,
+   "status": "ok",
+   "where": "261019_시안02.pdf 4쪽"
+  },
+  {
+   "id": "m49",
+   "tag": "offering",
+   "text": "AI 모델 추론과 서비스 실행",
+   "short": "AI 모델 추론과 서비스 실행",
+   "page": 7,
+   "status": "ok",
+   "where": "261019_시안02.pdf 7쪽"
+  },
+  {
+   "id": "m50",
+   "tag": "offering",
+   "text": "AI 모델 개발 · 학습 · 추론 · 서비스",
+   "short": "AI 모델 개발 · 학습 · 추론 · 서비스",
+   "page": 4,
+   "status": "ok",
+   "where": "261019_시안02.pdf 4쪽"
+  },
+  {
+   "id": "m51",
+   "tag": "offering",
+   "text": "업무시스템 · 데이터 저장 · 웹서비스 운영",
+   "short": "업무시스템 · 데이터 저장 · 웹서비스 운영",
+   "page": 4,
+   "status": "ok",
+   "where": "261019_시안02.pdf 4쪽"
+  },
+  {
+   "id": "m52",
+   "tag": "offering",
+   "text": "AI를 개발하고 서비스하며 전국으로 확산합니다",
+   "short": "AI를 개발하고 서비스하며 전국으로 확산",
+   "page": 2,
+   "status": "ok",
+   "where": "261019_시안02.pdf 2쪽"
+  },
+  {
+   "id": "m53",
+   "tag": "offering",
+   "text": "경북AI클라우드팜센터에서 AI 개발·실증·서비스와 산업 AX 확산을 추진하고 있습니다",
+   "short": "AI 개발·실증·서비스와 산업 AX 확산",
+   "page": 3,
+   "status": "ok",
+   "where": "261019_시안02.pdf 3쪽"
+  },
+  {
+   "id": "m54",
+   "tag": "offering",
+   "text": "경북 초거대 AI 클라우드팜 사업단은 기업과 기관의 AI 도입과 활용을 지원하는 것입니다",
+   "short": "기업과 기관의 AI 도입과 활용 지원",
+   "page": 4,
+   "status": "unverified",
+   "where": "261019_시안02.pdf 4쪽"
+  },
+  {
+   "id": "m55",
+   "tag": "offering",
+   "text": "클라우드부터 AI까지, 하나의 플랫폼으로.",
+   "short": "클라우드부터 AI까지, 하나의 플랫폼으로",
+   "page": 14,
+   "status": "ok",
+   "where": "GB-HAFA-addon-leaflet.pdf 1쪽"
+  },
+  {
+   "id": "m56",
+   "tag": "offering",
+   "text": "데이터 운영부터 AI 모델 개발·학습, 추론 서비스까지 경북IT융합산업기술원이 연결합니다.",
+   "short": "데이터 운영부터 AI 모델 개발·학습, 추론 서비스 연결",
+   "page": 14,
+   "status": "ok",
+   "where": "GB-HAFA-addon-leaflet.pdf 1쪽"
+  },
+  {
+   "id": "m57",
+   "tag": "offering",
+   "text": "AI 빌드업 커뮤니티",
+   "short": "AI 빌드업 커뮤니티",
+   "page": 16,
+   "status": "ok",
+   "where": "GB-HAFA-collab-draft (1).pdf 1쪽"
+  },
+  {
+   "id": "m58",
+   "tag": "offering",
+   "text": "기업의 아이디어를 국가 R&D와 사업화로",
+   "short": "기업의 아이디어를 국가 R&D와 사업화로",
+   "page": 17,
+   "status": "ok",
+   "where": "GB-HAFA-collab-draft (1).pdf 2쪽"
+  },
+  {
+   "id": "m59",
+   "tag": "offering",
+   "text": "공동 R&D 발굴",
+   "short": "공동 R&D 발굴",
+   "page": 10,
+   "status": "ok",
+   "where": "261019_시안02.pdf 10쪽"
+  },
+  {
+   "id": "m60",
+   "tag": "offering",
+   "text": "인프라 활용 · 실증",
+   "short": "인프라 활용 · 실증",
+   "page": 10,
+   "status": "ok",
+   "where": "261019_시안02.pdf 10쪽"
+  },
+  {
+   "id": "m61",
+   "tag": "offering",
+   "text": "기술기획·공동 R&D 발굴·실증·확산을 하나의 지원체계로 연결합니다",
+   "short": "기술기획·공동 R&D 발굴·실증·확산 연결",
+   "page": 10,
+   "status": "ok",
+   "where": "261019_시안02.pdf 10쪽"
+  },
+  {
+   "id": "m62",
+   "tag": "offering",
+   "text": "기술수요에서 공동 R&D, 실증과 사업화까지 하나의 체계로 연결합니다",
+   "short": "기술수요에서 공동 R&D, 실증과 사업화 연결",
+   "page": 10,
+   "status": "ok",
+   "where": "261019_시안02.pdf 10쪽"
+  },
+  {
+   "id": "m63",
+   "tag": "offering",
+   "text": "AI를 도입하려는 기업, AI 기술을 가진 SW·AI 기업, 대학·연구기관·전문가가 하나의 커뮤니티에서 만나 실질적인 AI 프로젝트를 함께 만들어갑니다",
+   "short": "",
+   "page": 11,
+   "status": "ok",
+   "where": "261019_시안02.pdf 11쪽"
+  },
+  {
+   "id": "m64",
+   "tag": "offering",
+   "text": "AI를 잘 몰라도 괜찮습니다. 참여의 가치는 분명합니다.",
+   "short": "AI를 잘 몰라도 괜찮습니다. 참여의 가치는 분명합니다.",
+   "page": 11,
+   "status": "ok",
+   "where": "261019_시안02.pdf 11쪽"
+  },
+  {
+   "id": "m65",
+   "tag": "offering",
+   "text": "기술상담, 파트너 매칭, PoC 기회, 공동 R&D, 사업화 연계",
+   "short": "기술상담, 파트너 매칭, PoC 기회, 공동 R&D, 사업화 연계",
+   "page": 11,
+   "status": "ok",
+   "where": "261019_시안02.pdf 11쪽"
+  },
+  {
+   "id": "m66",
+   "tag": "offering",
+   "text": "AI 기술과 기업을 연결하는 AI 빌드업 커뮤니티",
+   "short": "AI 기술과 기업을 연결하는 AI 빌드업 커뮤니티",
+   "page": 16,
+   "status": "ok",
+   "where": "GB-HAFA-collab-draft (1).pdf 1쪽"
+  },
+  {
+   "id": "m67",
+   "tag": "offering",
+   "text": "전문인력·기술정보·협력 파트너가 부족해 AI 도입이 어려운 기업을 위해, 기업·대학·연구기관이 기술을 나누고 현장 문제를 함께 푸는 개방형 기술협력 네트워크입니다",
+   "short": "",
+   "page": 16,
+   "status": "ok",
+   "where": "GB-HAFA-collab-draft (1).pdf 1쪽"
+  },
+  {
+   "id": "m68",
+   "tag": "offering",
+   "text": "기업의 아이디어와 현장 문제를 바탕으로 정부·지자체 공모사업을 함께 발굴하고, 과제기획부터 컨소시엄 구성, 실증·사업화까지 연계합니다",
+   "short": "",
+   "page": 17,
+   "status": "ok",
+   "where": "GB-HAFA-collab-draft (1).pdf 2쪽"
+  },
+  {
+   "id": "m69",
+   "tag": "offering",
+   "text": "AI 인프라·실증 연계",
+   "short": "AI 인프라·실증 연계",
+   "page": 17,
+   "status": "ok",
+   "where": "GB-HAFA-collab-draft (1).pdf 2쪽"
+  },
+  {
+   "id": "m70",
+   "tag": "offering",
+   "text": "협력 가능 분야: 생성형 AI·AI Agent, 제조 AX, Physical AI·로봇, 모빌리티, AI 반도체·NPU, 차세대 AI 데이터센터, AI 플랫폼·서비스",
+   "short": "생성형 AI·AI Agent, 제조 AX, Physical AI·로봇, 모빌리티, AI 반도체·NPU, 차세대 AI 데이터센터, AI 플랫폼·서비스",
+   "page": 17,
+   "status": "unverified",
+   "where": "GB-HAFA-collab-draft (1).pdf 2쪽"
+  },
+  {
+   "id": "m71",
+   "tag": "offering",
+   "text": "소형 데이터센터 기반 AI산업 성장 지원",
+   "short": "소형 데이터센터 기반 AI산업 성장 지원",
+   "page": 17,
+   "status": "ok",
+   "where": "GB-HAFA-collab-draft (1).pdf 2쪽"
+  },
+  {
+   "id": "m72",
+   "tag": "offering",
+   "text": "국산 AI반도체(NPU) 기반 AI 서비스 상용화",
+   "short": "국산 AI반도체(NPU) 기반 AI 서비스 상용화",
+   "page": 17,
+   "status": "ok",
+   "where": "GB-HAFA-collab-draft (1).pdf 2쪽"
+  },
+  {
+   "id": "m73",
+   "tag": "offering",
+   "text": "AI 서비스·디바이스를 국산 NPU로 구동하고 제품화 지원",
+   "short": "AI 서비스·디바이스를 국산 NPU로 구동하고 제품화 지원",
+   "page": 17,
+   "status": "ok",
+   "where": "GB-HAFA-collab-draft (1).pdf 2쪽"
+  },
+  {
+   "id": "m74",
+   "tag": "offering",
+   "text": "칩-디바이스-서비스 연계 실증으로 GPU 대비 경쟁력 검증",
+   "short": "칩-디바이스-서비스 연계 실증으로 GPU 대비 경쟁력 검증",
+   "page": 17,
+   "status": "ok",
+   "where": "GB-HAFA-collab-draft (1).pdf 2쪽"
+  },
+  {
+   "id": "m75",
+   "tag": "offering",
+   "text": "기술수요 발굴",
+   "short": "기술수요 발굴",
+   "page": 17,
+   "status": "ok",
+   "where": "GB-HAFA-collab-draft (1).pdf 2쪽"
+  },
+  {
+   "id": "m76",
+   "tag": "offering",
+   "text": "공모사업 매칭",
+   "short": "공모사업 매칭",
+   "page": 17,
+   "status": "ok",
+   "where": "GB-HAFA-collab-draft (1).pdf 2쪽"
+  },
+  {
+   "id": "m77",
+   "tag": "offering",
+   "text": "공동기획 구체화",
+   "short": "공동기획 구체화",
+   "page": 17,
+   "status": "ok",
+   "where": "GB-HAFA-collab-draft (1).pdf 2쪽"
+  },
+  {
+   "id": "m78",
+   "tag": "offering",
+   "text": "컨소시엄 구성",
+   "short": "컨소시엄 구성",
+   "page": 17,
+   "status": "ok",
+   "where": "GB-HAFA-collab-draft (1).pdf 2쪽"
+  },
+  {
+   "id": "m79",
+   "tag": "offering",
+   "text": "R&D·실증 연계",
+   "short": "R&D·실증 연계",
+   "page": 17,
+   "status": "ok",
+   "where": "GB-HAFA-collab-draft (1).pdf 2쪽"
+  },
+  {
+   "id": "m80",
+   "tag": "offering",
+   "text": "기술수요 구체화",
+   "short": "기술수요 구체화",
+   "page": 17,
+   "status": "ok",
+   "where": "GB-HAFA-collab-draft (1).pdf 2쪽"
+  },
+  {
+   "id": "m81",
+   "tag": "offering",
+   "text": "협력기관 발굴",
+   "short": "협력기관 발굴",
+   "page": 17,
+   "status": "ok",
+   "where": "GB-HAFA-collab-draft (1).pdf 2쪽"
+  },
+  {
+   "id": "m82",
+   "tag": "offering",
+   "text": "컨소시엄 구성 지원",
+   "short": "컨소시엄 구성 지원",
+   "page": 17,
+   "status": "ok",
+   "where": "GB-HAFA-collab-draft (1).pdf 2쪽"
+  },
+  {
+   "id": "m83",
+   "tag": "offering",
+   "text": "공모사업 정보 공유",
+   "short": "공모사업 정보 공유",
+   "page": 16,
+   "status": "ok",
+   "where": "GB-HAFA-collab-draft (1).pdf 1쪽"
+  },
+  {
+   "id": "m84",
+   "tag": "offering",
+   "text": "AI 활용·기술지원",
+   "short": "AI 활용·기술지원",
+   "page": 16,
+   "status": "ok",
+   "where": "GB-HAFA-collab-draft (1).pdf 1쪽"
+  },
+  {
+   "id": "m85",
+   "tag": "offering",
+   "text": "기업 수요·과제 발굴",
+   "short": "기업 수요·과제 발굴",
+   "page": 16,
+   "status": "ok",
+   "where": "GB-HAFA-collab-draft (1).pdf 1쪽"
+  },
+  {
+   "id": "m86",
+   "tag": "offering",
+   "text": "공동협력·성과확산",
+   "short": "공동협력·성과확산",
+   "page": 16,
+   "status": "ok",
+   "where": "GB-HAFA-collab-draft (1).pdf 1쪽"
+  },
+  {
+   "id": "m87",
+   "tag": "offering",
+   "text": "기술교류·네트워킹",
+   "short": "기술교류·네트워킹",
+   "page": 16,
+   "status": "ok",
+   "where": "GB-HAFA-collab-draft (1).pdf 1쪽"
+  },
+  {
+   "id": "m88",
+   "tag": "offering",
+   "text": "빌드업 할인 10%",
+   "short": "빌드업 할인 10%",
+   "page": 16,
+   "status": "ok",
+   "where": "GB-HAFA-collab-draft (1).pdf 1쪽"
+  },
+  {
+   "id": "m89",
+   "tag": "offering",
+   "text": "기술정보·동향",
+   "short": "기술정보·동향",
+   "page": 16,
+   "status": "ok",
+   "where": "GB-HAFA-collab-draft (1).pdf 1쪽"
+  },
+  {
+   "id": "m90",
+   "tag": "offering",
+   "text": "전문가 네트워크",
+   "short": "전문가 네트워크",
+   "page": 16,
+   "status": "ok",
+   "where": "GB-HAFA-collab-draft (1).pdf 1쪽"
+  },
+  {
+   "id": "m91",
+   "tag": "offering",
+   "text": "공동과제 기획 연계",
+   "short": "공동과제 기획 연계",
+   "page": 16,
+   "status": "ok",
+   "where": "GB-HAFA-collab-draft (1).pdf 1쪽"
+  },
+  {
+   "id": "m92",
+   "tag": "offering",
+   "text": "AI 도입을 위해 모든 환경을 직접 구축할 필요는 없습니다",
+   "short": "AI 도입을 위해 모든 환경을 직접 구축할 필요는 없습니다",
+   "page": 12,
+   "status": "ok",
+   "where": "261019_시안02.pdf 12쪽"
+  },
+  {
+   "id": "m93",
+   "tag": "offering",
+   "text": "AI 도입의 장벽, 직접 구축하지 말고 연결하세요",
+   "short": "AI 도입의 장벽, 직접 구축하지 말고 연결하세요",
+   "page": 12,
+   "status": "ok",
+   "where": "261019_시안02.pdf 12쪽"
+  },
+  {
+   "id": "m94",
+   "tag": "offering",
+   "text": "필요한 단계만 골라 쓰세요",
+   "short": "필요한 단계만 골라 쓰세요",
+   "page": 14,
+   "status": "ok",
+   "where": "GB-HAFA-addon-leaflet.pdf 1쪽"
+  },
+  {
+   "id": "m95",
+   "tag": "offering",
+   "text": "인프라 구축 비용은 줄이고, AI 개발과 사업화에 집중하세요",
+   "short": "인프라 구축 비용은 줄이고, AI 개발과 사업화에 집중하세요",
+   "page": 14,
+   "status": "ok",
+   "where": "GB-HAFA-addon-leaflet.pdf 1쪽"
+  },
+  {
+   "id": "m96",
+   "tag": "offering",
+   "text": "합리적인 요금에, 지역 할인까지 더했습니다",
+   "short": "합리적인 요금에, 지역 할인까지 더했습니다",
+   "page": 15,
+   "status": "ok",
+   "where": "GB-HAFA-addon-leaflet.pdf 2쪽"
+  },
+  {
+   "id": "m97",
+   "tag": "offering",
+   "text": "대경권 20% + 빌드업 10% 적용 시",
+   "short": "대경권 20% + 빌드업 10% 적용 시",
+   "page": 15,
+   "status": "ok",
+   "where": "GB-HAFA-addon-leaflet.pdf 2쪽"
+  },
+  {
+   "id": "m98",
+   "tag": "offering",
+   "text": "클라우드 확장형과 함께 쓰면 50%",
+   "short": "클라우드 확장형과 함께 쓰면 50%",
+   "page": 15,
+   "status": "ok",
+   "where": "GB-HAFA-addon-leaflet.pdf 2쪽"
+  },
+  {
+   "id": "m99",
+   "tag": "offering",
+   "text": "GPU는 순차 적용",
+   "short": "GPU는 순차 적용",
+   "page": 15,
+   "status": "ok",
+   "where": "GB-HAFA-addon-leaflet.pdf 2쪽"
+  },
+  {
+   "id": "m100",
+   "tag": "offering",
+   "text": "서비스별 상세 요금",
+   "short": "서비스별 상세 요금",
+   "page": 15,
+   "status": "ok",
+   "where": "GB-HAFA-addon-leaflet.pdf 2쪽"
+  },
+  {
+   "id": "m101",
+   "tag": "offering",
+   "text": "월 이용요금 기준",
+   "short": "월 이용요금 기준",
+   "page": 15,
+   "status": "ok",
+   "where": "GB-HAFA-addon-leaflet.pdf 2쪽"
+  },
+  {
+   "id": "m102",
+   "tag": "offering",
+   "text": "VAT 별도",
+   "short": "VAT 별도",
+   "page": 15,
+   "status": "ok",
+   "where": "GB-HAFA-addon-leaflet.pdf 2쪽"
+  },
+  {
+   "id": "m103",
+   "tag": "offering",
+   "text": "할인가는 해당 조건을 모두 충족할 때의 금액입니다",
+   "short": "할인가는 해당 조건을 모두 충족할 때의 금액입니다",
+   "page": 15,
+   "status": "ok",
+   "where": "GB-HAFA-addon-leaflet.pdf 2쪽"
+  },
+  {
+   "id": "m104",
+   "tag": "offering",
+   "text": "기본형 4 vCore / 16GB",
+   "short": "기본형 4 vCore / 16GB",
+   "page": 15,
+   "status": "ok",
+   "where": "GB-HAFA-addon-leaflet.pdf 2쪽"
+  },
+  {
+   "id": "m105",
+   "tag": "offering",
+   "text": "확장형 8 vCore / 32GB",
+   "short": "확장형 8 vCore / 32GB",
+   "page": 15,
+   "status": "ok",
+   "where": "GB-HAFA-addon-leaflet.pdf 2쪽"
+  },
+  {
+   "id": "m106",
+   "tag": "offering",
+   "text": "1 Unit = GPU 1장",
+   "short": "1 Unit = GPU 1장",
+   "page": 15,
+   "status": "ok",
+   "where": "GB-HAFA-addon-leaflet.pdf 2쪽"
+  },
+  {
+   "id": "m107",
+   "tag": "offering",
+   "text": "API 운영키",
+   "short": "API 운영키",
+   "page": 15,
+   "status": "ok",
+   "where": "GB-HAFA-addon-leaflet.pdf 2쪽"
+  },
+  {
+   "id": "m108",
+   "tag": "offering",
+   "text": "OpenAI 호환",
+   "short": "OpenAI 호환",
+   "page": 14,
+   "status": "ok",
+   "where": "GB-HAFA-addon-leaflet.pdf 1쪽"
+  },
+  {
+   "id": "m109",
+   "tag": "offering",
+   "text": "GPU 서버 불필요",
+   "short": "GPU 서버 불필요",
+   "page": 14,
+   "status": "ok",
+   "where": "GB-HAFA-addon-leaflet.pdf 1쪽"
+  },
+  {
+   "id": "m110",
+   "tag": "offering",
+   "text": "AI·Cloud 이용 상담부터 공동 R&D까지",
+   "short": "AI·Cloud 이용 상담부터 공동 R&D까지",
+   "page": 14,
+   "status": "ok",
+   "where": "GB-HAFA-addon-leaflet.pdf 1쪽"
+  },
+  {
+   "id": "m111",
+   "tag": "offering",
+   "text": "요금 · 할인 · 서비스별 신청 QR은 뒷면에서 확인하세요",
+   "short": "요금 · 할인 · 서비스별 신청 QR은 뒷면에서 확인하세요",
+   "page": 14,
+   "status": "ok",
+   "where": "GB-HAFA-addon-leaflet.pdf 1쪽"
+  },
+  {
+   "id": "m112",
+   "tag": "offering",
+   "text": "기술수요를 공동 R&D로 발전시키는 방법은 뒷면에서 확인하세요",
+   "short": "기술수요를 공동 R&D로 발전시키는 방법은 뒷면에서 확인하세요",
+   "page": 16,
+   "status": "ok",
+   "where": "GB-HAFA-collab-draft (1).pdf 1쪽"
+  },
+  {
+   "id": "m113",
+   "tag": "offering",
+   "text": "기술수요 제출",
+   "short": "기술수요 제출",
+   "page": 17,
+   "status": "ok",
+   "where": "GB-HAFA-collab-draft (1).pdf 2쪽"
+  },
+  {
+   "id": "m114",
+   "tag": "offering",
+   "text": "사업계획 공동기획",
+   "short": "사업계획 공동기획",
+   "page": 17,
+   "status": "ok",
+   "where": "GB-HAFA-collab-draft (1).pdf 2쪽"
+  }
+ ],
+ "cta": {
+  "url": "hafa.gbcloud.ai",
+  "phone": "053-245-5073",
+  "email": "contact@gbcloud.ai",
+  "found": {
+   "urls": [
+    "hafa.gbcloud.ai",
+    "hafa.gbcloud.ai/connect",
+    "cpu.gbcloud.ai",
+    "gpu.gbcloud.ai",
+    "api.gbcloud.ai",
+    "www.gitc.or.kr",
+    "x.gbcloud.ai"
+   ],
+   "phones": [
+    "053-245-5073",
+    "053-245-5040",
+    "053-245-5000",
+    "053-245-5066",
+    "053-245-5014"
+   ],
+   "emails": [
+    "contact@gbcloud.ai",
+    "gitc@gitc.or.kr",
+    "gitc_aidc@gitc.or.kr"
+   ]
+  }
+ },
+ "made_with": "",
+ "assets": [
+  {
+   "id": "a01",
+   "file": "261019_시안02_pdf_p02_9.jpg",
+   "source": "261019_시안02.pdf 2쪽",
+   "kind": "real_building",
+   "subject": "exterior of a modern multi-story office building with glass and metal facade under a blue sky",
+   "has_text": true,
+   "people": 0,
+   "usable": true,
+   "notes_ko": "현대적인 사무용 건물 외관이 맑은 하늘 아래 보여짐",
+   "recipes": [
+    "aerial_push",
+    "crane_up"
+   ]
+  },
+  {
+   "id": "a02",
+   "file": "261019_시안02_pdf_p03_25.jpg",
+   "source": "261019_시안02.pdf 3쪽",
+   "kind": "real_building",
+   "subject": "a modern multi-story building with glass and metal facade under a clear blue sky",
+   "has_text": true,
+   "people": 0,
+   "usable": true,
+   "notes_ko": "현대적인 유리와 금속 외관의 다층 건물이 맑은 하늘 아래 보입니다.",
+   "recipes": [
+    "aerial_push",
+    "crane_up"
+   ]
+  },
+  {
+   "id": "a03",
+   "file": "261019_시안02_pdf_p04_113.jpg",
+   "source": "261019_시안02.pdf 4쪽",
+   "kind": "concept_tech",
+   "subject": "a futuristic data center with rows of servers leading to a glowing digital globe connected by network lines",
+   "has_text": false,
+   "people": 0,
+   "usable": true,
+   "notes_ko": "디지털 지구와 서버 랙이 있는 기술 개념 이미지",
+   "recipes": [
+    "corridor_dolly",
+    "data_flow",
+    "cloud_float",
+    "screen_glow"
+   ]
+  },
+  {
+   "id": "a04",
+   "file": "261019_시안02_pdf_p05_220.jpg",
+   "source": "261019_시안02.pdf 5쪽",
+   "kind": "concept_tech",
+   "subject": "abstract network of connected nodes and lines representing data or digital connections",
+   "has_text": false,
+   "people": 0,
+   "usable": true,
+   "notes_ko": "디지털 네트워크나 데이터 연결을 상징하는 추상적인 기술 이미지입니다.",
+   "recipes": [
+    "data_flow",
+    "corridor_dolly",
+    "cloud_float",
+    "screen_glow"
+   ]
+  },
+  {
+   "id": "a05",
+   "file": "261019_시안02_pdf_p06_270.jpg",
+   "source": "261019_시안02.pdf 6쪽",
+   "kind": "concept_tech",
+   "subject": "a glowing blue cloud hovering over a futuristic cityscape with circuit-like pathways",
+   "has_text": false,
+   "people": 0,
+   "usable": true,
+   "notes_ko": "클라우드 컴퓨팅을 상징하는 투명한 구름과 도시, 회로가 결합된 기술 개념 이미지입니다.",
+   "recipes": [
+    "data_flow",
+    "cloud_float",
+    "corridor_dolly",
+    "screen_glow"
+   ]
+  },
+  {
+   "id": "a06",
+   "file": "261019_시안02_pdf_p07_317.jpg",
+   "source": "261019_시안02.pdf 7쪽",
+   "kind": "concept_tech",
+   "subject": "a stylized illustration of a glowing circuit board with illuminated pathways and electronic components",
+   "has_text": false,
+   "people": 0,
+   "usable": true,
+   "notes_ko": "회로 기판과 전자 부품을 묘사한 기술 개념 이미지입니다.",
+   "recipes": [
+    "data_flow",
+    "corridor_dolly",
+    "cloud_float",
+    "screen_glow"
+   ]
+  },
+  {
+   "id": "a07",
+   "file": "261019_시안02_pdf_p08_338.jpg",
+   "source": "261019_시안02.pdf 8쪽",
+   "kind": "concept_tech",
+   "subject": "a person in a suit viewing a large wall of futuristic digital dashboards displaying data visualizations, graphs, and network diagrams",
+   "has_text": true,
+   "people": 1,
+   "usable": true,
+   "notes_ko": "미래적인 데이터 시각화 화면을 보는 사람의 모습을 담은 기술 개념 이미지입니다.",
+   "recipes": [
+    "data_flow",
+    "screen_glow",
+    "corridor_dolly",
+    "cloud_float"
+   ]
+  },
+  {
+   "id": "a08",
+   "file": "261019_시안02_pdf_p09_374.jpg",
+   "source": "261019_시안02.pdf 9쪽",
+   "kind": "concept_tech",
+   "subject": "a futuristic digital tunnel with glowing data streams and light particles",
+   "has_text": false,
+   "people": 0,
+   "usable": true,
+   "notes_ko": "디지털 데이터 흐름을 표현한 추상적인 기술 개념 이미지입니다.",
+   "recipes": [
+    "data_flow",
+    "corridor_dolly",
+    "cloud_float",
+    "screen_glow"
+   ]
+  },
+  {
+   "id": "a09",
+   "file": "261019_시안02_pdf_p10_456.jpg",
+   "source": "261019_시안02.pdf 10쪽",
+   "kind": "concept_city",
+   "subject": "a futuristic cityscape with glowing blue digital networks and skyscrapers",
+   "has_text": false,
+   "people": 0,
+   "usable": true,
+   "notes_ko": "미래 도시의 디지털 네트워크와 고층 건물이 빛나는 개념 이미지",
+   "recipes": [
+    "skyline_drift"
+   ]
+  },
+  {
+   "id": "a10",
+   "file": "261019_시안02_pdf_p11_675.jpg",
+   "source": "261019_시안02.pdf 11쪽",
+   "kind": "real_landscape",
+   "subject": "a panoramic view of a city skyline with mountains in the background under a clear blue sky",
+   "has_text": false,
+   "people": 0,
+   "usable": true,
+   "notes_ko": "맑은 하늘 아래 산과 도시의 스카이라인을 보여주는 풍경 사진입니다.",
+   "recipes": [
+    "skyline_drift"
+   ]
+  },
+  {
+   "id": "a11",
+   "file": "261019_시안02_pdf_p12_776.jpg",
+   "source": "261019_시안02.pdf 12쪽",
+   "kind": "concept_tech",
+   "subject": "a hand holding a glowing digital cloud connected by network lines, symbolizing cloud computing or data technology",
+   "has_text": false,
+   "people": 1,
+   "usable": true,
+   "notes_ko": "손이 빛나는 디지털 클라우드를 들고 있는 기술 개념 이미지입니다.",
+   "recipes": [
+    "data_flow",
+    "cloud_float",
+    "corridor_dolly",
+    "screen_glow"
+   ]
+  },
+  {
+   "id": "a12",
+   "file": "261019_시안02_pdf_p13_809.jpg",
+   "source": "261019_시안02.pdf 13쪽",
+   "kind": "graphic_text",
+   "subject": "a map and informational poster for Gyeongbuk Institute of IT Convergence Industry Technology, showing location, contact details, and nearby landmarks",
+   "has_text": true,
+   "people": 0,
+   "usable": false,
+   "notes_ko": "지역 기관의 위치와 연락처를 보여주는 지도형 인포그래픽으로, 텍스트가 주된 정보 전달 수단입니다.",
+   "recipes": [
+    "data_flow"
+   ]
+  },
+  {
+   "id": "a13",
+   "file": "GB-HAFA-collab-draft (1)_pdf_p01_11.jpg",
+   "source": "GB-HAFA-collab-draft (1).pdf 1쪽",
+   "kind": "real_people",
+   "subject": "a group of people attending a conference or meeting in a wooden hall, seated at tables with a banner in front",
+   "has_text": true,
+   "people": 30,
+   "usable": true,
+   "notes_ko": "회의나 세미나에 참석한 사람들이 나무로 된 회의실에 앉아 있는 실내 사진입니다.",
+   "recipes": [
+    "gentle_life"
+   ]
+  },
+  {
+   "id": "a14",
+   "file": "GB-HAFA-collab-draft (1)_pdf_p01_12.jpg",
+   "source": "GB-HAFA-collab-draft (1).pdf 1쪽",
+   "kind": "real_people",
+   "subject": "a group of people attending a technical seminar or workshop in a conference room, with a presenter at the front and attendees using laptops",
+   "has_text": true,
+   "people": 25,
+   "usable": true,
+   "notes_ko": "기술 세미나 현장에서 참석자들이 노트북을 사용하며 발표를 듣고 있는 모습",
+   "recipes": [
+    "gentle_life"
+   ]
+  },
+  {
+   "id": "a15",
+   "file": "GB-HAFA-collab-draft (1)_pdf_p01_13.jpg",
+   "source": "GB-HAFA-collab-draft (1).pdf 1쪽",
+   "kind": "concept_tech",
+   "subject": "GB-HAFA-collab-draft (1)_pdf_p01_13",
+   "has_text": false,
+   "people": 0,
+   "usable": true,
+   "notes_ko": "분류 실패: 채팅(qwen3-vl-32b) 실패 (HTTP 403): {\"error\":\"security_policy_blocked\",\"message\":\"[경고 4/10] 분당 요청 한도를 넘긴 뒤에도 호출을 반복했습니다. 10회 초과부터 차단 시간이 1→2→4→16→32분 으로 늘어납니다. (model=qwen3-vl-32b)\",\"violation_code\":\"rate_limit_rpm\",\"strike_count\":4,\"offense_count\":4,\"escalation_tier\":0,\"phase\":\"warning\",\"warning_limit\":10,\"blocked_until\":1792942596.7924368,\"retry_after_sec\":9,\"block_duration_label\":\"10초\",\"policy\":{\"warning_seconds\":10,\"warning_strikes\":10,\"escalation_minutes\":[1,2,4,16,32],\"hint\":\"처음 10회는 10초 경고 차단입니다. Cursor·Claude 등은 포털(account → 이 키로 해당 모델 사용 불가",
+   "recipes": [
+    "corridor_dolly",
+    "data_flow",
+    "cloud_float",
+    "screen_glow"
+   ]
+  }
+ ],
+ "issues": [
+  {
+   "page": 3,
+   "text": "3단계 2026.08~현재 K-AI 반도체데이터센터(NPU존) 구축 중",
+   "by": "LLM",
+   "where": "261019_시안02.pdf 3쪽"
+  },
+  {
+   "page": 7,
+   "text": "2,204 Core",
+   "by": "LLM",
+   "where": "261019_시안02.pdf 7쪽"
+  },
+  {
+   "page": 14,
+   "text": "2,204 CPU Core",
+   "by": "LLM",
+   "where": "GB-HAFA-addon-leaflet.pdf 1쪽"
+  },
+  {
+   "page": 14,
+   "text": "1.3PB GPU SSD 스토리지",
+   "by": "LLM",
+   "where": "GB-HAFA-addon-leaflet.pdf 1쪽"
+  },
+  {
+   "page": 15,
+   "text": "GPU H100 월 이용요금 비교",
+   "by": "LLM",
+   "where": "GB-HAFA-addon-leaflet.pdf 2쪽"
+  },
+  {
+   "page": 15,
+   "text": "H200 · B200 요금은 별도 문의",
+   "by": "LLM",
+   "where": "GB-HAFA-addon-leaflet.pdf 2쪽"
+  },
+  {
+   "page": 15,
+   "text": "할인가는 해당 조건을 모두 충족할 때의 금액입니다",
+   "by": "LLM",
+   "where": "GB-HAFA-addon-leaflet.pdf 2쪽"
+  },
+  {
+   "page": 17,
+   "text": "공모예정\nAX 실증지원 사업\n국산 AI반도체(NPU) 기반 AI 서비스 상용화\nAI 서비스·디바이스를 국산 NPU로 구동하고 제품화 지원\n외산 GPU 기반 AI 서비스를 국산 NPU 인프라로 전환\n칩-디바이스-서비스 연계 실증으로 GPU 대비 경쟁력 검증\n정보통신산업진흥원 출연 · 2027년~ · 실증 예: 피지컬AI·제조 등",
+   "by": "LLM",
+   "where": "GB-HAFA-collab-draft (1).pdf 2쪽"
+  },
+  {
+   "page": 2,
+   "text": "'로고예정' 자리표시가 2, 4쪽에 남아 있습니다. 영상 엔딩 로고가 정해지지 않았습니다.",
+   "by": "규칙",
+   "where": "261019_시안02.pdf 2쪽"
+  }
+ ],
+ "inputs": {
+  "pdf": [
+   "input\\gbcloud_pdf\\261019_시안02.pdf",
+   "input\\gbcloud_pdf\\GB-HAFA-addon-leaflet.pdf",
+   "input\\gbcloud_pdf\\GB-HAFA-collab-draft (1).pdf"
+  ]
+ }
+}

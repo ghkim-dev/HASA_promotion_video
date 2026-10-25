@@ -1,0 +1,22 @@
+# 비밀·환경
+.env
+.venv/
+__pycache__/
+*.pyc
+
+# 실행 결과 (다시 만들 수 있음)
+output/
+rag_stores/
+vs_tmp/
+*.log
+
+# 입력 자료 (원본 PDF·사진 — 내부 자료, 용량 큼)
+input/
+
+# 홍보 프로젝트: 설정(brief·storyboard)만 올리고 결과물·캐시는 제외
+promo_projects/*/cache/
+promo_projects/*/renders/
+promo_projects/*/debug/
+promo_projects/*/*.mp4
+promo_projects/*/*.srt
+promo_projects/*/brochure.pdf

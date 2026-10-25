@@ -1,0 +1,121 @@
+{
+ "format": "short",
+ "label": "숏폼 (SNS·박람회 루프)",
+ "aspect": "9:16",
+ "canvas": "720x1280",
+ "fps": 24,
+ "seconds": 24.0,
+ "beats": [
+  {
+   "index": 0,
+   "role": "hook",
+   "start": 0.0,
+   "seconds": 3,
+   "visual": "photo",
+   "asset": "a09",
+   "asset_file": "pdf_p10_456.jpg",
+   "asset_kind": "concept_city",
+   "asset_subject": "a bright futuristic city skyline with glass towers and glowing streets",
+   "recipe": "skyline_drift",
+   "overlay": {
+    "kind": "title",
+    "items": [
+     "m3"
+    ]
+   },
+   "narration_ids": [],
+   "bridge": "",
+   "narration": "",
+   "subtitle": ""
+  },
+  {
+   "index": 1,
+   "role": "problem",
+   "start": 3.0,
+   "seconds": 4,
+   "visual": "photo",
+   "asset": "a04",
+   "asset_file": "pdf_p05_220.jpg",
+   "asset_kind": "concept_tech",
+   "asset_subject": "a glowing blue network mesh of connected light particles",
+   "recipe": "data_flow",
+   "overlay": {
+    "kind": "bullets",
+    "items": [
+     "m7",
+     "m8"
+    ]
+   },
+   "narration_ids": [],
+   "bridge": "",
+   "narration": "",
+   "subtitle": ""
+  },
+  {
+   "index": 2,
+   "role": "hero",
+   "start": 7.0,
+   "seconds": 5,
+   "visual": "photo",
+   "asset": "a01",
+   "asset_file": "pdf_p02_9.jpg",
+   "asset_kind": "real_building",
+   "asset_subject": "a modern six-storey research building with glass facade under a blue sky with white clouds",
+   "recipe": "aerial_push",
+   "overlay": {
+    "kind": "lower_third",
+    "items": [
+     "m1",
+     "m2"
+    ]
+   },
+   "narration_ids": [],
+   "bridge": "",
+   "narration": "",
+   "subtitle": ""
+  },
+  {
+   "index": 3,
+   "role": "proof",
+   "start": 12.0,
+   "seconds": 6,
+   "visual": "photo",
+   "asset": "a03",
+   "asset_file": "pdf_p04_113.jpg",
+   "asset_kind": "concept_tech",
+   "asset_subject": "a futuristic data center corridor with server racks leading to a glowing digital globe",
+   "recipe": "corridor_dolly",
+   "overlay": {
+    "kind": "counter",
+    "items": [
+     "f5",
+     "f1"
+    ]
+   },
+   "narration_ids": [],
+   "bridge": "",
+   "narration": "",
+   "subtitle": ""
+  },
+  {
+   "index": 4,
+   "role": "cta",
+   "start": 18.0,
+   "seconds": 6,
+   "visual": "graphic",
+   "asset": null,
+   "asset_file": null,
+   "asset_kind": null,
+   "asset_subject": null,
+   "recipe": null,
+   "overlay": {
+    "kind": "end_card",
+    "items": []
+   },
+   "narration_ids": [],
+   "bridge": "",
+   "narration": "",
+   "subtitle": ""
+  }
+ ]
+}

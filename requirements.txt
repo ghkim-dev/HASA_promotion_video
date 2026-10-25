@@ -1,0 +1,10 @@
+requests>=2.31
+python-dotenv>=1.0
+Pillow>=10.0
+numpy>=1.24
+# frame sampling, motion metrics, joining shots
+opencv-python-headless>=4.8
+# promo mode: brochure PDF reading and QR code on the end card
+pymupdf>=1.24
+qrcode>=7.4
+# ffmpeg on PATH is required for long mode and promo mode (Windows: winget install Gyan.FFmpeg)
