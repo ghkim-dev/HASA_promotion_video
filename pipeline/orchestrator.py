@@ -112,10 +112,29 @@ def run(cfg: RunConfig, hub: Hub | None = None) -> dict:
 
     log(f"\n=== {cfg.name} | 저장={run_dir}\n    모델: text={m.text} vision={m.vision} video={m.video} ({size})")
 
+    def rel(p) -> str:                                    # 화면(웹)에서 쓰는 run_dir 기준 상대 경로
+        try:
+            return Path(p).resolve().relative_to(run_dir.resolve()).as_posix()
+        except (ValueError, TypeError):
+            return ""
+
+    from PIL import Image as _Image
+    from .budget import vlm_pixels
+    from .utils import fit_pixels, vlm_tokens
+    with _Image.open(input_img) as _im:
+        in_w, in_h = _im.size
+    vw, vh = fit_pixels(in_w, in_h, vlm_pixels(1))
+    state["resolution"] = {"input": [in_w, in_h], "vlm": [vw, vh], "vlm_tokens": vlm_tokens(vw, vh), "video": size}
+    log(f"    해상도: 입력 {in_w}×{in_h} → AI가 보는 사진 {vw}×{vh} (약 {vlm_tokens(vw, vh):,}토큰) → 영상 {size}")
+    emit("start", "시작", data={"run": run_dir.name, "input": rel(input_img), "size": size,
+                                "models": state["models"], "request": cfg.request, "resolution": state["resolution"]})
+
     # 0. 관찰
     emit("observe", "사진 장면 분석 (RPG식 재캡션)")
     scene = agents.observe(hub, input_img)
     state["scene"] = scene
+    emit("observe_done", scene.get("caption", ""), data={k: scene.get(k) for k in (
+        "caption", "subjects", "background", "environment_dynamics", "camera", "lighting", "style", "identity_anchors")})
     # 0.5 용어
     hints = lexicon.match(cfg.request)
     state["terms"] = hints
@@ -132,9 +151,12 @@ def run(cfg: RunConfig, hub: Hub | None = None) -> dict:
             emit("understand", "확인 답변을 반영해 다시 이해")
             spec = agents.understand(hub, cfg.request, scene, hints, limits, answers=answers)
     state["spec"] = spec
+    emit("understand_done", spec.get("intent_ko") or spec.get("intent", ""), data={k: spec.get(k) for k in (
+        "intent", "intent_ko", "goals", "shots", "preserve", "assumptions", "risks")})
     # 2. 체크리스트
     emit("checklist", "검증 질문 작성 (TIFA·Video-Bench·VBench)")
     state["checklist"] = agents.checklist(hub, spec, hints)
+    emit("checklist_done", f"질문 {len(state['checklist'])}개", data={"questions": state["checklist"]})
     save()
     if cfg.plan_only:
         emit("done", f"계획만 실행 완료 → {run_dir / 'report.html'}")
@@ -158,6 +180,9 @@ def run(cfg: RunConfig, hub: Hub | None = None) -> dict:
             cands = agents.design(hub, spec, shot, scene, cfg.candidates, memory, hints)
             for ci, c in enumerate(cands, 1):
                 c["id"] = f"c{ci}"
+            emit("design_done", f"{shot['id']} 라운드 {r} 프롬프트", data={
+                "shot": shot["id"], "round": r, "first": rel(first),
+                "candidates": [{k: c.get(k) for k in ("id", "prompt", "strategy_ko", "covers", "missing")} for c in cands]})
             _generate_all(hub, cands, rdir, first, shot["seconds"], size, emit)
 
             for c in cands:
@@ -183,6 +208,17 @@ def run(cfg: RunConfig, hub: Hub | None = None) -> dict:
                     c["score"] = round(c["score"] * 0.97 ** len(c["missing"]), 3)
                     c["penalties"].append(f"프롬프트에 목표 {', '.join(c['missing'])} 누락 ×{0.97 ** len(c['missing']):.2f}")
                 emit("verify", f"    {c['id']} 점수 {c['score']:.2f}" + (f" ({'; '.join(c['penalties'])})" if c["penalties"] else ""))
+                ans = c["judge"].get("answers", {})
+                emit("verify_done", f"{c['id']} 점수 {c['score']:.2f}", data={
+                    "shot": shot["id"], "round": r, "cand": c["id"], "score": c["score"], "video": rel(vid),
+                    "sheet": rel(c["sheet"]) if c["sheet"] else "", "frames": [rel(f) for f in c["frames"]],
+                    "summary": c["description"].get("summary", ""), "camera": c["description"].get("camera", ""),
+                    "answers": [{"id": q["id"], "kind": q["kind"], "question": q["question"], "question_ko": q.get("question_ko", ""),
+                                 "answer": ans.get(q["id"], {}).get("answer", "no"),
+                                 "evidence": ans.get(q["id"], {}).get("evidence", "")} for q in qs],
+                    "motion_quality": c["judge"].get("motion_quality"), "temporal_consistency": c["judge"].get("temporal_consistency"),
+                    "notes_ko": c["judge"].get("notes_ko", ""), "metrics": c["metrics"], "penalties": c["penalties"],
+                    "threshold": cfg.threshold})
 
             ok = [c for c in cands if c.get("file") and "error" not in c]
             ranking = None
@@ -221,6 +257,9 @@ def run(cfg: RunConfig, hub: Hub | None = None) -> dict:
                 state.setdefault("needs_clarification", []).append(
                     {"shot": shot["id"], "round": r, "why": refl.get("summary_ko", ""), "mismatches": refl.get("mismatches", [])})
             emit("reflect", f"    경로={refl['route']} — {refl.get('summary_ko', '')}")
+            emit("reflect_done", refl.get("summary_ko", ""), data={
+                "shot": shot["id"], "round": r, "route": refl["route"], "cause": refl.get("cause", ""),
+                "mismatches": refl.get("mismatches", []), "summary_ko": refl.get("summary_ko", "")})
             save()
 
         if not srec["best"]:
@@ -235,15 +274,19 @@ def run(cfg: RunConfig, hub: Hub | None = None) -> dict:
                       "scores": [s["best"]["score"] for s in state["shots"]]}
     state["finished"] = datetime.now().isoformat(timespec="seconds")
     save()
-    emit("done", f"완료 → {final}  (보고서 {run_dir / 'report.html'})")
+    emit("done", f"완료 → {final}  (보고서 {run_dir / 'report.html'})", data={
+        "final": rel(final), "scores": state["final"]["scores"], "seconds": (state["final"]["info"] or {}).get("seconds")})
     return state
 
 
 def _generate_all(hub: Hub, cands: list[dict], rdir: Path, first: Path, seconds: float, size: str, emit) -> None:
     """개발키는 동시 1건이라 순서대로. 키 한도가 늘면(OASH_MAX_CONCURRENCY) 병렬로 보낸다."""
     def one(c: dict) -> None:
+        def prog(status: str, pct) -> None:
+            emit("progress", f"    {c['id']} {status} {pct}%", data={"cand": c["id"], "status": status, "percent": pct})
         try:
-            res = hub.generate_video(c["prompt"], rdir / c["id"], first, seconds, size, negative=c.get("negative"))
+            res = hub.generate_video(c["prompt"], rdir / c["id"], first, seconds, size, negative=c.get("negative"),
+                                     on_progress=prog)
             c.update({"file": str(res["file"]), "seed": res["seed"], "job_id": res["job_id"],
                       "elapsed": res["elapsed"]})
         except HubError as e:

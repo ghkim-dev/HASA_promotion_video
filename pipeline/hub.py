@@ -46,8 +46,15 @@ IMAGE_KW = ("qwen-image", "flux", "sdxl", "diffusion")
 VIDEO_KW = ("video", "wan", "hunyuan", "cogvideo", "ltx", "mochi", "t2v", "i2v")
 
 # 영상 모델 규격 (포털 카탈로그 video_spec 값, HAIR_Studio에서 확인). 모르는 모델은 DEFAULT 사용
+# Wan 2.2 I2V-A14B는 480P·720P를 지원하고 결과 비율은 입력 사진을 따른다 (가로 832×480·1280×720, 세로 480×832·720×1280).
+# Hub가 처음 안내한 크기는 832×480·640×480이므로, 나머지는 '시도해 보고 거절되면 기억'한다 (output/video_sizes.json).
+# OASH_VIDEO_QUALITY=720p 이면 720P 크기를 우선 (생성 시간이 약 2~4배).
+WAN_480 = ["832x480", "480x832", "640x480", "480x640"]
+WAN_720 = ["1280x720", "720x1280", "960x720", "720x960"]
+HUB_KNOWN_SIZES = {"wan2.2-i2v": ["832x480", "640x480"]}
 VIDEO_SPECS = {
-    "wan2.2-i2v": {"fps": 16, "max_seconds": 4, "frame_align": 4, "sizes": ["832x480", "640x480"], "family": "wan"},
+    "wan2.2-i2v": {"fps": 16, "max_seconds": 4, "frame_align": 4, "sizes": WAN_480, "sizes_720": WAN_720 + WAN_480,
+                   "family": "wan"},
     "wan2.2-t2v": {"fps": 16, "max_seconds": 10, "frame_align": 4,
                    "sizes": ["832x480", "640x480", "480x832", "512x512"], "family": "wan"},
     "ltx-2": {"fps": 24, "max_seconds": 10, "frame_align": 8, "sizes": ["1280x704", "1216x704", "768x512"],
@@ -58,13 +65,45 @@ DEFAULT_NEGATIVE = ("blurry, low quality, flicker, jitter, morphing, distorted f
                     "different person, sudden scene change, static frozen video, watermark, subtitles, text")
 
 
+def _sizes_path() -> Path:
+    from .budget import STATE_DIR
+    return STATE_DIR / "video_sizes.json"
+
+
+def rejected_sizes(model: str) -> set[str]:
+    try:
+        return set(json.loads(_sizes_path().read_text(encoding="utf-8")).get(model.lower(), []))
+    except (OSError, ValueError):
+        return set()
+
+
+def reject_size(model: str, size: str) -> None:
+    p = _sizes_path()
+    try:
+        d = json.loads(p.read_text(encoding="utf-8")) if p.exists() else {}
+    except ValueError:
+        d = {}
+    d.setdefault(model.lower(), [])
+    if size not in d[model.lower()]:
+        d[model.lower()].append(size)
+    p.parent.mkdir(parents=True, exist_ok=True)
+    p.write_text(json.dumps(d, indent=1), encoding="utf-8")
+
+
 def video_spec(model: str) -> dict:
     s = VIDEO_SPECS.get(model.lower())
-    if s:
-        return s
-    low = model.lower()
-    fam = "wan" if "wan" in low else ("ltx" if "ltx" in low else "generic")
-    return {**DEFAULT_VIDEO_SPEC, "family": fam}
+    if not s:
+        low = model.lower()
+        fam = "wan" if "wan" in low else ("ltx" if "ltx" in low else "generic")
+        return {**DEFAULT_VIDEO_SPEC, "family": fam}
+    s = dict(s)
+    if os.getenv("OASH_VIDEO_QUALITY", "480p").strip().lower() in ("720p", "720", "hd") and s.get("sizes_720"):
+        s["sizes"] = list(s["sizes_720"])
+    bad = rejected_sizes(model)
+    known = HUB_KNOWN_SIZES.get(model.lower(), [])
+    s["sizes"] = [z for z in s["sizes"] if z not in bad] or known or s["sizes"]
+    s["known_sizes"] = known
+    return s
 
 
 def accepts_image(model: str) -> bool:
@@ -204,7 +243,7 @@ class Hub:
                 if t == "text":
                     n += est_tokens(part.get("text", ""))
                 elif t == "image_url":
-                    n += image_tokens(BUDGET.mode["img_side"])
+                    n += part.get("_tokens") or image_tokens(BUDGET.mode["img_pixels"])
                 elif t == "video_url":
                     n += 6000                                   # 짧은 클립 대략치
         return n
@@ -243,10 +282,11 @@ class Hub:
         images는 기준 사진 등 함께 볼 이미지. 실패하면 HubError → 호출하는 쪽이 프레임 방식으로 바꾼다."""
         import base64
         content: list[dict] = [{"type": "text", "text": prompt}]
+        from .budget import vlm_pixels
         for label, p in images or []:
             if label:
                 content.append({"type": "text", "text": label})
-            content.append({"type": "image_url", "image_url": {"url": image_to_data_url(p, max_side=_img_side())}})
+            content.append({"type": "image_url", "image_url": {"url": image_to_data_url(p, max_pixels=vlm_pixels(len(images or []) + 1))}})
         content.append({"type": "text", "text": "VIDEO:"})
         content.append({"type": "video_url", "video_url": {"url": "data:video/mp4;base64," + base64.b64encode(Path(video).read_bytes()).decode()}})
         msgs = ([{"role": "system", "content": system}] if system else []) + [{"role": "user", "content": content}]
@@ -269,16 +309,46 @@ class Hub:
         return _re.sub(r"\n\s*\n+", "\n", raw).strip()
 
     def vision(self, prompt: str, images: list[tuple[str, Path]], system: str | None = None,
-               temperature: float = 0.1, max_tokens: int | None = None, max_side: int | None = None) -> str:
-        """images: [(라벨, 경로)] — 라벨을 이미지 바로 앞에 텍스트로 넣어 순서·시각을 알려준다."""
-        content: list[dict] = [{"type": "text", "text": prompt}]
-        for label, p in images:
-            if label:
-                content.append({"type": "text", "text": label})
-            content.append({"type": "image_url", "image_url": {"url": image_to_data_url(p, max_side=max_side or _img_side())}})
-        msgs = ([{"role": "system", "content": system}] if system else []) + [{"role": "user", "content": content}]
+               temperature: float = 0.1, max_tokens: int | None = None, max_side: int | None = None,
+               max_pixels: int | None = None) -> str:
+        """images: [(라벨, 경로)] — 라벨을 이미지 바로 앞에 텍스트로 넣어 순서·시각을 알려준다.
+        사진은 비율을 지키며 픽셀 수로 맞춘다 (Qwen3-VL은 32×32픽셀당 1토큰, 1장 최대 약 1,670만 픽셀).
+        1장이면 크게(모드 기본 약 420만 픽셀), 여러 장이면 장당 작게. Hub가 너무 크다고 거절하면 1/4로 줄여 다시 보내고 기억한다."""
+        from .budget import BUDGET, vlm_pixels
+        from .utils import fit_pixels, vlm_tokens
+
+        def build() -> list[dict]:
+            px = max_pixels or vlm_pixels(len(images))
+            content: list[dict] = [{"type": "text", "text": prompt}]
+            for label, p in images:
+                if label:
+                    content.append({"type": "text", "text": label})
+                url = image_to_data_url(p, max_side=max_side) if max_side else image_to_data_url(p, max_pixels=px)
+                try:
+                    from PIL import Image
+                    with Image.open(p) as im:
+                        tok = vlm_tokens(*fit_pixels(im.width, im.height, px))
+                except Exception:  # noqa: BLE001
+                    tok = None
+                content.append({"type": "image_url", "image_url": {"url": url}, "_tokens": tok})
+            return content
+
+        def send(content: list[dict]) -> str:
+            clean = [{k: v for k, v in c.items() if k != "_tokens"} for c in content]
+            msgs = ([{"role": "system", "content": system}] if system else []) + [{"role": "user", "content": clean}]
+            self._last_tokens = sum(c.get("_tokens") or 0 for c in content)
+            return self.chat(msgs, model=self.models().vision, temperature=temperature, max_tokens=max_tokens)
+
         self.calls["vision"] += 1
-        return self.chat(msgs, model=self.models().vision, temperature=temperature, max_tokens=max_tokens)
+        try:
+            return send(build())
+        except HubError as e:
+            big = any(w in str(e).lower() for w in ("image", "pixel", "too large", "too long", "exceed", "maximum", "413"))
+            if max_side or max_pixels or not ("HTTP 400" in str(e) or "HTTP 413" in str(e) or "HTTP 422" in str(e)) or not big:
+                raise
+            sc = BUDGET.shrink_px()
+            log(f"    (Hub가 사진 크기를 거절 → 사진 픽셀을 {sc:.0%}로 줄여 다시 보내고 기억합니다)")
+            return send(build())
 
     # ------------------------------------------------------------ 영상
     @staticmethod
@@ -294,6 +364,13 @@ class Hub:
         if not model:
             raise HubError("영상 모델이 없습니다 (.env의 OASH_VIDEO_MODEL 지정)")
         spec = video_spec(model)
+        if size in rejected_sizes(model) and spec.get("known_sizes"):     # 이미 거절된 크기는 바로 대체 크기로
+            from .videoio import parse_size, prepare_image
+            tw, th = parse_size(size)
+            fb = min(spec["known_sizes"], key=lambda z: abs(parse_size(z)[0] / parse_size(z)[1] - tw / th))
+            if image is not None:
+                image = prepare_image(image, fb, Path(out).with_name(Path(out).name + f"_first_{fb}.jpg"), fit="pad")
+            size = fb
         seed = seed if seed is not None else random.randint(1, 2**31 - 1)
         body = {"model": model, "prompt": prompt, "size": size, "length": self.frames_for(seconds, spec),
                 "steps": self.video_steps, "seed": seed, "negative_prompt": negative or DEFAULT_NEGATIVE}
@@ -301,8 +378,25 @@ class Hub:
             if not accepts_image(model):
                 raise HubError(f"{model}은(는) 첫 프레임 이미지를 받지 않습니다. i2v 모델을 쓰거나, 받는 모델이면 "
                                f".env에 OASH_VIDEO_ACCEPTS_IMAGE=1을 넣으세요.")
-            body["image"] = image_to_data_url(image, max_side=1280)
-        job = self._post("/videos/generations", body, f"영상 작업 생성({model})", timeout=120)
+            body["image"] = image_to_data_url(image, max_side=max(int(v) for v in size.split("x")))
+        try:
+            job = self._post("/videos/generations", body, f"영상 작업 생성({model})", timeout=120)
+        except HubError as e:
+            known = spec.get("known_sizes") or []
+            if not known or size in known or not any(f"HTTP {c}" in str(e) for c in (400, 404, 422)):
+                raise
+            # 세로·720P 등 Hub가 받지 않는 크기 → 기억하고, 비율이 가장 가까운 기존 크기로 첫 프레임을 맞춰 다시 요청
+            from .videoio import parse_size, prepare_image
+            reject_size(model, size)
+            tw, th = parse_size(size)
+            fb = min(known, key=lambda z: abs(parse_size(z)[0] / parse_size(z)[1] - tw / th))
+            log(f"    (Hub가 {size} 크기를 받지 않아 {fb}로 바꿔 다시 요청합니다 — 다음부터는 바로 {fb} 사용)")
+            size = fb
+            body["size"] = fb
+            if image is not None:
+                image = prepare_image(image, fb, Path(out).with_name(Path(out).name + f"_first_{fb}.jpg"), fit="pad")
+                body["image"] = image_to_data_url(image, max_side=max(int(v) for v in fb.split("x")))
+            job = self._post("/videos/generations", body, f"영상 작업 생성({model})", timeout=120)
         self.calls["video"] += 1
         job_id = job.get("job_id") or job.get("id")
         if not job_id:

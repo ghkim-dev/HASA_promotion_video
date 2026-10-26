@@ -19,6 +19,13 @@ import tempfile
 import threading
 from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
 
+import os as _os
+import time as _time
+
+# 연습(리허설) 모드용 지연: 실제 Hub처럼 단계가 눈에 보이게 (테스트에서는 0)
+MOCK_JOB_SECONDS = float(_os.getenv("MOCK_JOB_SECONDS", "0"))
+MOCK_CHAT_SECONDS = float(_os.getenv("MOCK_CHAT_SECONDS", "0"))
+JOB_T: dict = {}
 STATE = {"videos": 0, "answers": 0, "requests": [], "fail_from": 0, "checks": 0, "edits": 0, "tts": 0}
 VIDEOS: dict[str, bytes] = {}
 LOCK = threading.Lock()
@@ -231,12 +238,13 @@ def chat_reply(system: str, user_text: str) -> dict:
     if "Stage 1" in system:
         two = "8 seconds" in user_text or "seconds=8" in user_text or "about 8" in user_text
         goals = [{"id": "g1", "subject": "s1", "category": "environment", "change": "long hair blows to the right in the wind",
+                  "change_ko": "긴 머리카락이 바람에 오른쪽으로 날림",
                   "when": "throughout", "intensity": "moderate", "rule": "hair and dress move in the same wind direction"},
-                 {"id": "g2", "subject": "camera", "category": "camera", "change": "slow dolly-in toward the woman",
+                 {"id": "g2", "subject": "camera", "category": "camera", "change": "slow dolly-in toward the woman", "change_ko": "카메라가 천천히 다가감",
                   "when": "throughout", "intensity": "moderate", "rule": "subject grows steadily larger, no jumps"}]
         shots = [{"id": "shot1", "seconds": 4, "goals": ["g1", "g2"], "note": "hair blows, camera pushes in"}]
         if two:
-            goals.append({"id": "g3", "subject": "s1", "category": "action", "change": "she turns her head and smiles",
+            goals.append({"id": "g3", "subject": "s1", "category": "action", "change": "she turns her head and smiles", "change_ko": "고개를 돌리며 미소",
                           "when": "end", "intensity": "subtle", "rule": "face stays the same person"})
             shots.append({"id": "shot2", "seconds": 4, "goals": ["g3"], "note": "she turns and smiles"})
         return {"intent": "Animate the woman's hair in the wind while the camera slowly pushes in.",
@@ -247,13 +255,13 @@ def chat_reply(system: str, user_text: str) -> dict:
     if "Stage 2" in system:
         return {"questions": [
             {"id": "q1", "kind": "goal", "ref": "g1", "shot": "shot1", "when": "throughout",
-             "question": "Does her hair visibly move to the right?", "weight": 1.5},
+             "question": "Does her hair visibly move to the right?", "question_ko": "머리카락이 오른쪽으로 날리나요?", "weight": 1.5},
             {"id": "q2", "kind": "goal", "ref": "g2", "shot": "shot1", "when": "compare_start_end",
-             "question": "Does the woman appear larger in the last frame?", "weight": 1.5},
+             "question": "Does the woman appear larger in the last frame?", "question_ko": "마지막 장면에서 인물이 더 크게 보이나요?", "weight": 1.5},
             {"id": "q3", "kind": "preserve", "ref": "preserve", "shot": "all", "when": "throughout",
-             "question": "Is she clearly the same person in all frames?", "weight": 2.0},
+             "question": "Is she clearly the same person in all frames?", "question_ko": "모든 장면에서 같은 사람으로 보이나요?", "weight": 2.0},
             {"id": "q4", "kind": "quality", "ref": "quality", "shot": "all", "when": "throughout",
-             "question": "Is the motion free of sudden jumps?", "weight": 1.0}]}
+             "question": "Is the motion free of sudden jumps?", "question_ko": "갑자기 튀는 장면 없이 자연스럽나요?", "weight": 1.0}]}
     if "Stage 3" in system:
         return {"prompts": [
             {"prompt": "A young woman in a white dress on a seaside cliff; her long black hair streams to the right in a "
@@ -312,6 +320,10 @@ class H(BaseHTTPRequestHandler):
                 "qwen3-embedding-4b", "bge-reranker-v2-m3-ko", "whisper-large-v3-turbo", "nemotron-embed-8b")]})
         if "/jobs/" in self.path:
             jid = self.path.split("/jobs/")[1]
+            el = _time.time() - JOB_T.get(jid, 0)
+            if MOCK_JOB_SECONDS and el < MOCK_JOB_SECONDS:
+                return self._send({"job_id": jid, "status": "GENERATING" if el > 1 else "QUEUED",
+                                   "progress": int(100 * el / MOCK_JOB_SECONDS)})
             return self._send({"job_id": jid, "status": "COMPLETED", "progress": 100,
                                "artifact_url": f"/files/{jid}.mp4"})
         if self.path.startswith("/files/"):
@@ -344,6 +356,8 @@ class H(BaseHTTPRequestHandler):
                     STATE["last_image_brightness"] = _video_brightness(vids[-1])
                 elif imgs:
                     STATE["last_image_brightness"] = _brightness(imgs[-1])
+            if MOCK_CHAT_SECONDS:
+                _time.sleep(MOCK_CHAT_SECONDS)
             content = "```json\n" + json.dumps(chat_reply(system, user_text), ensure_ascii=False) + "\n```"
             STATE["chat_calls"] = STATE.get("chat_calls", 0) + 1
             return self._send({"choices": [{"message": {"role": "assistant", "content": content}}],
@@ -374,12 +388,17 @@ class H(BaseHTTPRequestHandler):
             if STATE["fail_from"] and STATE["videos"] + 1 >= STATE["fail_from"]:
                 return self._send({"error": "gpu node down"}, 500)
             assert "length" in req and "size" in req, req.keys()
+            if req["size"] in STATE.get("reject_sizes", ()):              # 받지 않는 해상도 흉내 (세로·720P 시험)
+                STATE["rejected"] = STATE.get("rejected", 0) + 1
+                return self._send({"error": f"unsupported size {req['size']}"}, 400)
+            STATE.setdefault("sizes_seen", []).append(req["size"])
             with LOCK:
                 STATE["videos"] += 1
                 moving = STATE["videos"] >= 2
                 STATE["requests"].append({k: v for k, v in req.items() if k != "image"} | {"has_image": "image" in req})
             jid = f"job{next(_ids)}"
             VIDEOS[jid] = _make_video(req.get("image"), req["size"], int(req["length"]), moving)
+            JOB_T[jid] = _time.time()
             return self._send({"job_id": jid, "status": "QUEUED"})
         self._send({"error": "not found"}, 404)
 

@@ -2,7 +2,8 @@
 
 모드 (VS_TOKEN_MODE, 기본 max)
   max       근거·자료를 컨텍스트의 60%까지 관련도순으로 채움, 답변 최대 16K, 검사 판정 3회 다수결,
-            이야기 계획 후보 3개 중 최선 선택, 사진 설명 길게, VLM 이미지 1280px
+            이야기 계획 후보 3개 중 최선 선택, 사진 설명 길게,
+            VLM 사진 1장 약 420만 픽셀(비율 유지, 약 4천 토큰)·여러 장일 때 장당 약 92만 픽셀
   balanced  근거 25%, 답변 4K, 판정 1회
   eco       예전 방식 (근거 약 3,500자, 답변 2K)
 
@@ -25,10 +26,13 @@ from .utils import log
 
 MODES = {
     "max": {"out_tokens": 16384, "ctx_fill": 0.6, "votes": 3, "plan_candidates": 3, "frames": 8, "img_side": 1280,
+            "img_pixels": 4_194_304, "frame_pixels": 921_600,
             "evidence_k": 200, "rerank_pool": 100, "visuals_k": 30, "detailed_captions": True},
     "balanced": {"out_tokens": 4096, "ctx_fill": 0.25, "votes": 1, "plan_candidates": 1, "frames": 5, "img_side": 1024,
+                 "img_pixels": 1_638_400, "frame_pixels": 589_824,
                  "evidence_k": 40, "rerank_pool": 50, "visuals_k": 15, "detailed_captions": False},
     "eco": {"out_tokens": 2048, "ctx_fill": 0.03, "votes": 1, "plan_candidates": 1, "frames": 4, "img_side": 768,
+            "img_pixels": 589_824, "frame_pixels": 409_600,
             "evidence_k": 14, "rerank_pool": 30, "visuals_k": 10, "detailed_captions": False},
 }
 
@@ -53,9 +57,20 @@ def est_tokens(text: str) -> int:
     return int(non * 1.0 + (len(text) - non) / 3.5) + 8
 
 
-def image_tokens(side: int) -> int:
-    """VLM 이미지 1장의 대략 토큰 (28px 패치 기준)."""
-    return int((side / 28) ** 2 * 0.6) + 64
+def image_tokens(pixels: int) -> int:
+    """VLM 이미지 1장의 토큰 (Qwen3-VL: 32×32픽셀당 1토큰)."""
+    return int(pixels / 1024) + 2
+
+
+def vlm_pixels(n_images: int = 1) -> int:
+    """VLM에 보낼 사진 1장의 최대 픽셀 수. 1장이면 크게, 여러 장(영상 프레임)이면 장당 작게.
+    .env의 VS_VLM_MAX_PIXELS / VS_VLM_FRAME_PIXELS로 바꿀 수 있고, Hub가 거절하면 Hub.vision이 줄여서 기억한다."""
+    m = BUDGET.mode
+    if n_images <= 1:
+        px = int(float(os.getenv("VS_VLM_MAX_PIXELS") or m["img_pixels"]))   # 빈 값이면 모드 기본
+    else:
+        px = int(float(os.getenv("VS_VLM_FRAME_PIXELS") or m["frame_pixels"]))   # 빈 값이면 모드 기본
+    return max(65_536, int(px * BUDGET.px_scale()))
 
 
 class Budget:
@@ -87,7 +102,7 @@ class Budget:
 
     def remember_limit(self, model: str, n: int) -> None:
         with _lock:
-            self.limits()[model] = int(n)
+            self.limits()[model] = n if isinstance(n, float) else int(n)   # '_'로 시작하는 키는 설정값(실수)
             STATE_DIR.mkdir(parents=True, exist_ok=True)
             self._limits_path().write_text(json.dumps(self._limits, indent=1), encoding="utf-8")
 
@@ -128,6 +143,15 @@ class Budget:
         """근거·자료로 채울 수 있는 입력 토큰 (모드의 ctx_fill 비율, 답변·지시문 몫은 남긴다)."""
         ctx = self.context(hub, model)
         return max(1500, int(ctx * self.mode["ctx_fill"]) - reserved)
+
+    # ---------------------------------------------------------------- VLM 사진 크기 (Hub가 거절하면 줄여서 기억)
+    def px_scale(self) -> float:
+        return float(self.limits().get("_vlm_px_scale", 1.0))
+
+    def shrink_px(self) -> float:
+        sc = max(0.05, self.px_scale() / 4)
+        self.remember_limit("_vlm_px_scale", sc)   # type: ignore[arg-type]
+        return sc
 
     # ---------------------------------------------------------------- 하루 사용량
     def _usage_path(self) -> Path:

@@ -139,7 +139,8 @@ def normalize_checklist(qs: list[dict], spec: dict) -> list[dict]:
         if g["id"] not in covered:
             out.append({"id": f"q{len(out) + 1}", "kind": "goal", "ref": g["id"], "shot": shot_of.get(g["id"], "all"),
                         "when": "compare_start_end" if g["when"] != "start" else "start",
-                        "question": f"Does the video show this: {g.get('change', '')}?", "weight": 1.5})
+                        "question": f"Does the video show this: {g.get('change', '')}?",
+                        "question_ko": f"{g['change_ko']} — 영상에 보이나요?" if g.get("change_ko") else "", "weight": 1.5})
     return out
 
 

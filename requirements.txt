@@ -8,3 +8,7 @@ opencv-python-headless>=4.8
 pymupdf>=1.24
 qrcode>=7.4
 # ffmpeg on PATH is required for long mode and promo mode (Windows: winget install Gyan.FFmpeg)
+# kiosk web service
+fastapi>=0.110
+uvicorn>=0.27
+python-multipart>=0.0.9

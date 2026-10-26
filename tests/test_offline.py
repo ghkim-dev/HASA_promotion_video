@@ -114,7 +114,7 @@ class Offline(unittest.TestCase):
         run_dir = fin.parent
         self.assertTrue((run_dir / "report.html").exists())
         data = json.loads((run_dir / "run.json").read_text(encoding="utf-8"))
-        self.assertEqual(data["size"], "640x480")              # 세로 사진 → 가장 가까운 비율
+        self.assertEqual(data["size"], "480x640")              # 세로 사진(3:4) → 세로 영상 (Wan 2.2는 세로도 지원)
         self.assertTrue(all(r["has_image"] for r in mock_hub.STATE["requests"]))
 
     def test_multi_shot_and_rank(self):

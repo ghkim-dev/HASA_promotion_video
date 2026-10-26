@@ -42,11 +42,18 @@ def choose_size(image: Path, sizes: list[str]) -> str:
     return min(sizes, key=lambda s: abs(parse_size(s)[0] / parse_size(s)[1] - ar))
 
 
+CROP_MAX_MISMATCH = 1.3       # 사진과 영상 비율이 이보다 많이 다르면 crop 대신 pad
+
+
 def prepare_image(src: Path, size: str, out: Path, fit: str = "crop") -> Path:
     """첫 프레임용 이미지. crop=가운데 기준 잘라 채움, pad=흐린 배경으로 여백 채움, none=그대로 크기만 맞춤."""
     from PIL import Image, ImageFilter
     tw, th = parse_size(size)
     im = Image.open(src).convert("RGB")
+    if fit == "crop":                                   # 비율 차이가 크면(세로 사진 → 가로 영상 등) 자르면 대부분 잘려 나가므로 여백 채움
+        ar_in, ar_out = im.width / im.height, tw / th
+        if max(ar_in / ar_out, ar_out / ar_in) > CROP_MAX_MISMATCH:
+            fit = "pad"
     if fit == "none":
         res = im.resize((tw, th), Image.LANCZOS)
     elif fit == "pad":

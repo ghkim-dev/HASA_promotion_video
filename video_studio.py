@@ -15,6 +15,9 @@
   python video_studio.py rag ask 우리자료 "데이터센터 서버실"
   python video_studio.py long --image 내사진.jpg --request "..." --minutes 3 --kb 우리자료
 
+  # 전시회 키오스크 웹서비스 (이 PC의 브라우저에서 http://localhost:8000)
+  python video_studio.py web            (연습: python video_studio.py web --mock)
+
   # 입력 폴더 하나에 PDF 여러 개·사진·동영상·문서(docx/pptx/xlsx/hwpx/txt)·웹 주소(.url, urls.txt)를 모아 두고
   python video_studio.py promo ingest --input input\gbcloud_pdf --name 클라우드팜
   python video_studio.py long --input input\gbcloud_pdf --request "..." --minutes 5      (첫 프레임도 자료에서 자동 선택)
@@ -180,11 +183,19 @@ def cmd_tokens(a) -> None:
     lim = BUDGET.limits()
     if lim:
         log("\n모델 최대 입력 길이 (토큰):")
-        for k, v in sorted(lim.items(), key=lambda x: -x[1]):
+        for k, v in sorted(((k, v) for k, v in lim.items() if not k.startswith("_")), key=lambda x: -x[1]):
             mark = " ← 글" if k == m.text else (" ← 비전" if k == m.vision else "")
             log(f"  {k:<28} {v:>9,}{mark}")
     else:
         log("\n아직 확인한 모델이 없습니다. python video_studio.py tokens --probe")
+
+
+def cmd_web(a) -> None:
+    try:
+        from kiosk.server import serve
+    except ImportError as e:
+        raise SystemExit(f"웹서비스에 필요한 패키지가 없습니다 ({e.name}). 설치: pip install -r requirements.txt") from None
+    serve(host=a.host, port=a.port, mock=a.mock, rounds=a.rounds, threshold=a.threshold)
 
 
 def cmd_terms(_a) -> None:
@@ -233,6 +244,12 @@ def main() -> None:
     rs.add_argument("run_dir")
     asm = sub.add_parser("assemble", help="장편: 지금까지 만든 부분으로 preview.mp4")
     asm.add_argument("run_dir")
+    wb = sub.add_parser("web", help="전시회 키오스크 웹서비스 (사진+요청 → 생성 과정 실시간 시각화)")
+    wb.add_argument("--host", default="127.0.0.1", help="기본 127.0.0.1 = 이 PC에서만 접속 (localhost)")
+    wb.add_argument("--port", type=int, default=8000)
+    wb.add_argument("--mock", action="store_true", help="연습 모드: Hub 없이 가짜 모델로 화면 흐름만 확인")
+    wb.add_argument("--rounds", type=int, default=2, help="관람객 1명당 최대 시도 횟수 (기본 2)")
+    wb.add_argument("--threshold", type=float, default=0.8, help="이 점수 이상이면 바로 완성 (기본 0.8)")
     tk = sub.add_parser("tokens", help="오늘 토큰 사용량 · 모드 · 모델별 최대 입력 길이")
     tk.add_argument("--probe", action="store_true", help="대화·비전 모델의 최대 입력 길이를 서버에 물어 기록")
     rg = sub.add_parser("rag", help="멀티모달 지식 저장소: 사진·영상·문서·웹을 넣고 검색")
@@ -271,7 +288,7 @@ def main() -> None:
     prr.add_argument("--bgm", default=None, help="배경음악 파일 (mp3/wav)")
     a = ap.parse_args()
     try:
-        {"models": cmd_models, "run": cmd_run, "terms": cmd_terms, "long": cmd_long, "resume": cmd_resume,
+        {"web": cmd_web, "models": cmd_models, "run": cmd_run, "terms": cmd_terms, "long": cmd_long, "resume": cmd_resume,
          "assemble": cmd_assemble, "promo": cmd_promo, "rag": cmd_rag, "tokens": cmd_tokens}[a.cmd](a)
     except HubError as e:
         raise SystemExit(f"\n[Hub 오류] {e}")

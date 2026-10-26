@@ -12,15 +12,45 @@ def log(msg: str) -> None:
     print(msg, flush=True)
 
 
-def image_to_data_url(path: Path, max_side: int = 1024) -> str:
-    """VLM·I2V 입력용 data URL. 긴 변을 max_side로 줄이고 JPEG로 보낸다."""
+VLM_UNIT = 32                 # Qwen3-VL: 패치 16px × 병합 2 → 32×32px가 토큰 1개
+VLM_MIN_PIXELS = 65_536       # Qwen3-VL 전처리 shortest_edge (이보다 작으면 키운다)
+VLM_MAX_PIXELS = 16_777_216   # Qwen3-VL 전처리 longest_edge (사진 1장 최대 약 1,670만 픽셀 = 1만 6천 토큰)
+
+
+def fit_pixels(w: int, h: int, max_pixels: int, min_pixels: int = VLM_MIN_PIXELS, unit: int = VLM_UNIT) -> tuple[int, int]:
+    """비율을 지키면서 픽셀 수를 [min_pixels, max_pixels] 안으로, 두 변을 unit의 배수로 (Qwen-VL smart_resize와 같은 방식).
+    원본보다 크게 키우지는 않는다(최소 픽셀보다 작을 때만 예외)."""
+    import math
+    max_pixels = min(max_pixels, VLM_MAX_PIXELS)
+    area = max(1, w * h)
+    s = 1.0
+    if area > max_pixels:
+        s = math.sqrt(max_pixels / area)
+    elif area < min_pixels:
+        s = math.sqrt(min_pixels / area)
+    nw = max(unit, int(w * s // unit) * unit)
+    nh = max(unit, int(h * s // unit) * unit)
+    return nw, nh
+
+
+def vlm_tokens(w: int, h: int) -> int:
+    return (w // VLM_UNIT) * (h // VLM_UNIT) + 2
+
+
+def image_to_data_url(path: Path, max_side: int | None = None, max_pixels: int | None = None) -> str:
+    """VLM·I2V 입력용 data URL. max_pixels가 있으면 비율을 지키며 픽셀 수로 맞추고(세로 사진도 손해 없이),
+    없으면 긴 변을 max_side로 줄인다. JPEG로 보낸다."""
     raw = Path(path).read_bytes()
     mime = "image/png" if str(path).lower().endswith(".png") else "image/jpeg"
     try:
         from PIL import Image
         im = Image.open(io.BytesIO(raw)).convert("RGB")
-        if max(im.size) > max_side:
-            im.thumbnail((max_side, max_side))
+        if max_pixels:
+            nw, nh = fit_pixels(im.width, im.height, max_pixels)
+            if (nw, nh) != im.size:
+                im = im.resize((nw, nh), Image.LANCZOS)
+        elif max(im.size) > (max_side or 1024):
+            im.thumbnail((max_side or 1024, max_side or 1024))
         buf = io.BytesIO()
         im.save(buf, format="JPEG", quality=92)
         raw, mime = buf.getvalue(), "image/jpeg"

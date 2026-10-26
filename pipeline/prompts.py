@@ -51,6 +51,7 @@ Return ONLY JSON:
   "intent_ko": "한국어 한 문장 요약",
   "total_seconds": 4,
   "goals": [{"id": "g1", "subject": "s1|camera|background|scene", "category": "action", "change": "concrete visible change in English",
+             "change_ko": "같은 내용을 한국어 짧은 구로 (예: 머리카락이 바람에 날림)",
              "when": "throughout", "intensity": "subtle|moderate|strong", "rule": "physical/commonsense rule in English"}],
   "shots": [{"id": "shot1", "seconds": 4, "goals": ["g1"], "note": "what happens in this shot (English)"}],
   "preserve": ["English"],
@@ -73,7 +74,8 @@ answerable by looking at or comparing those frames.
 Each question names its shot ("shot1" ...) or "all", and "when": "start" | "middle" | "end" | "throughout" | "compare_start_end".
 Return ONLY JSON:
 {"questions": [{"id": "q1", "kind": "goal|preserve|quality", "ref": "g1|preserve|quality", "shot": "shot1|all",
-                "when": "compare_start_end", "question": "English yes/no question", "weight": 1.5}]}
+                "when": "compare_start_end", "question": "English yes/no question",
+                "question_ko": "같은 질문을 한국어로 (예: 머리카락이 바람에 날리나요?)", "weight": 1.5}]}
 Weights: goal 1.5, preserve 1.0 (identity 2.0), quality 1.0."""
 
 DESIGN = """You write prompts for the image-to-video model "{model}" (Stage 3: Prompt Design, after Prompt-A-Video ICCV 2025,
